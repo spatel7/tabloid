@@ -1,0 +1,286 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "font-7";
+  src:url("https://s3.amazonaws.com/spotonit/fonts/062014/062014.eot");
+  src:url("https://s3.amazonaws.com/spotonit/fonts/062014/062014.eot?#iefix") format("embedded-opentype"),
+    url("https://s3.amazonaws.com/spotonit/fonts/062014/062014.woff") format("woff"),
+    url("https://s3.amazonaws.com/spotonit/fonts/062014/062014.ttf") format("truetype"),
+    url("https://s3.amazonaws.com/spotonit/fonts/062014/062014.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "font-7" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "font-7" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-twitter:before {
+  content: "b";
+}
+.icon-trophy:before {
+  content: "c";
+}
+.icon-timeselect:before {
+  content: "d";
+}
+.icon-time:before {
+  content: "e";
+}
+.icon-tick-cal:before {
+  content: "f";
+}
+.icon-tick:before {
+  content: "g";
+}
+.icon-plus:before {
+  content: "h";
+}
+.icon-rain:before {
+  content: "i";
+}
+.icon-refresh:before {
+  content: "j";
+}
+.icon-ring:before {
+  content: "k";
+}
+.icon-search:before {
+  content: "l";
+}
+.icon-settings:before {
+  content: "m";
+}
+.icon-snow:before {
+  content: "n";
+}
+.icon-stay-connected:before {
+  content: "o";
+}
+.icon-storm:before {
+  content: "p";
+}
+.icon-sun:before {
+  content: "q";
+}
+.icon-tag:before {
+  content: "r";
+}
+.icon-target:before {
+  content: "s";
+}
+.icon-spoton:before {
+  content: "t";
+}
+.icon-nobel:before {
+  content: "u";
+}
+.icon-pause:before {
+  content: "v";
+}
+.icon-performance:before {
+  content: "w";
+}
+.icon-phone:before {
+  content: "x";
+}
+.icon-pie:before {
+  content: "y";
+}
+.icon-play:before {
+  content: "z";
+}
+.icon-mail:before {
+  content: "A";
+}
+.icon-logout:before {
+  content: "B";
+}
+.icon-location:before {
+  content: "C";
+}
+.icon-linkedin:before {
+  content: "D";
+}
+.icon-linegraph:before {
+  content: "E";
+}
+.icon-laptop:before {
+  content: "F";
+}
+.icon-knobs:before {
+  content: "G";
+}
+.icon-delete:before {
+  content: "H";
+}
+.icon-boxtick:before {
+  content: "I";
+}
+.icon-account:before {
+  content: "J";
+}
+.icon-account-nb:before {
+  content: "K";
+}
+.icon-cal31:before {
+  content: "L";
+}
+.icon-downarrow:before {
+  content: "M";
+}
+.icon-dribbble:before {
+  content: "N";
+}
+.icon-calcross:before {
+  content: "O";
+}
+.icon-aim:before {
+  content: "P";
+}
+.icon-analytics-nb:before {
+  content: "Q";
+}
+.icon-calplus:before {
+  content: "R";
+}
+.icon-edit:before {
+  content: "S";
+}
+.icon-edit-new:before {
+  content: "T";
+}
+.icon-error:before {
+  content: "U";
+}
+.icon-events:before {
+  content: "V";
+}
+.icon-facebook:before {
+  content: "W";
+}
+.icon-github:before {
+  content: "X";
+}
+.icon-google:before {
+  content: "Y";
+}
+.icon-graph:before {
+  content: "Z";
+}
+.icon-hamburger:before {
+  content: "0";
+}
+.icon-instagram:before {
+  content: "1";
+}
+.icon-cumpas:before {
+  content: "2";
+}
+.icon-bolt:before {
+  content: "3";
+}
+.icon-bell:before {
+  content: "4";
+}
+.icon-cross2:before {
+  content: "5";
+}
+.icon-cross1:before {
+  content: "6";
+}
+.icon-behance:before {
+  content: "7";
+}
+.icon-bar-graph:before {
+  content: "8";
+}
+.icon-cross:before {
+  content: "9";
+}
+.icon-connected:before {
+  content: "!";
+}
+.icon-article:before {
+  content: "\"";
+}
+.icon-arrow-up:before {
+  content: "#";
+}
+.icon-chrome-thick:before {
+  content: "$";
+}
+.icon-chrome-big:before {
+  content: "%";
+}
+.icon-arrow-right:before {
+  content: "&";
+}
+.icon-arrow-left:before {
+  content: "'";
+}
+.icon-chrome:before {
+  content: "(";
+}
+.icon-chat:before {
+  content: ")";
+}
+.icon-arrow-down:before {
+  content: "*";
+}
+.icon-bannerarrow-left:before {
+  content: "+";
+}
+.icon-bannerarrow-right:before {
+  content: ",";
+}
+.icon-spot:before {
+  content: "-";
+}
+.icon-ncaa:before {
+  content: ".";
+}
+.icon-cross-1:before {
+  content: "/";
+}
+.icon-sports:before {
+  content: ":";
+}
+.icon-briefcase-case-two:before {
+  content: "a";
+}
+.icon-work:before {
+  content: "<";
+}
+.icon-world-1:before {
+  content: "=";
+}
+.icon-world-2:before {
+  content: ";";
+}
+.icon-world-map:before {
+  content: ">";
+}

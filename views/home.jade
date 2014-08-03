@@ -1,0 +1,76 @@
+extends global
+
+block styles
+  link(rel='stylesheet', href='/css/home.css')
+
+block scripts
+  script(src='/js/home.js' type='text/javascript')
+
+block content
+  div.page
+    ul.overall
+      li.title
+        div.titleContainer
+          div.titlePart
+            a.titleLink(href='/home') Enthusiast
+            span.personal  for #{user.name.firstname}. 
+          div.navLinks
+            a#pinToggle(href='#') Pin link
+            &nbsp; &nbsp;
+            a(href='/logout') Logout
+      li.pin
+        div.formContainer
+          div.find
+            strong Save an interesting website
+            form(action='' method='POST' id='findForm')
+              input(type='text', id='url', placeholder='http://')
+              button(type='submit', name='submit') Find
+          div.tagAndSave
+            strong.title
+            form(action='/home/pin' method='POST' id='pinForm')
+              input(type='hidden', id='url', placeholder='http://', value='').link
+              input(type='hidden', id='title', placeholder='title of page', value='').title
+              input(type='hidden', id='image', placeholder='image', value='').image
+              input(type='text', id='tags', placeholder='tags (seperate with commas)').tags
+              div.imageOptions
+              button(type='submit', name='submit') Save link
+          div.errors
+      li.body
+        ul.main
+          li.links
+            for link in user.links
+              div.linkBox
+                input(type='hidden', id='bounceUrl', value='#{link.url}')
+                ul
+                  li.titleBox
+                    span #{link.title}
+                  li.tags
+                    for tag in link.tags
+                      a(href='/home/tag/#{tag}').tagLink
+                        span.tag #{tag.length < 48 ? tag : tag.slice(0, 45) + '...'}
+                  li.picture
+                    if link.image
+                      img(src='#{link.image}' style='max-width: 295px')
+                  li.url
+                    span.icon-world-2
+                    a(href='#{link.url.slice(0, link.url.indexOf(":"))}://#{link.miniUrl}' target="_blank").link #{link.miniUrl}
+                  li.change
+                    a(href='/home/delete/#{link._id}').deleteLink Delete
+                  li.tagsBox
+                    form(id='tagsBoxForm' action='#' method='POST')
+                      input(type='text', id='tags', placeholder='tags (seperate with commas)').tags
+                      br
+                      button(type='submit', name='submit') Save tags
+          li.tagsList
+            div.tags
+              a(href='/home').tagLink
+                span(class=(tagSelected ? '' : 'active')) All Tags
+              for tag in user.tags
+                a(href='/home/tag/#{tag}').tagLink
+                  span(class=(tagSelected === tag ? 'active' : '')) #{tag.length < 17 ? tag : tag.slice(0, 14) + '...'}
+                  br
+    ul.sidebar
+      li
+        img(src='/img/library2.png').active
+      li
+        img(src='/img/popular.png')

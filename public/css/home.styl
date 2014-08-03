@@ -1,0 +1,356 @@
+@import 'nib'
+
+img
+  &.selectable
+    display inline-block
+    margin 5px
+    border 1px solid gray
+    border-radius 3px
+    max-width 295px
+    cursor pointer
+
+    &:hover
+      border 1px solid blue
+  &.active
+    border 1px solid blue
+
+div.page
+  float left
+
+  ul.sidebar
+    float right
+    width 50px
+    list-style none
+    position fixed
+    left 50%
+    margin-left 305px
+
+    li
+      margin-bottom 5px
+
+      img
+        width 40px
+        height 40px
+        cursor pointer
+        opacity 0.5
+        border 0px solid black
+
+        &.active
+          opacity 1
+          border 0px solid black
+
+        &:hover
+          opacity 1
+
+  ul.overall
+    float left
+    width 645px
+    margin-right 5px
+
+    > .title
+      display block
+      width 100%
+      margin 0
+      padding 0
+      margin-bottom 15px
+      height 150px
+      display table
+      background url('/img/cover.jpg')
+      color white
+      box-shadow 1px 1px 5px #a0a0a0
+
+      > .titleContainer
+        width calc(100% - 20px)
+        padding 10px
+        display table-cell
+        vertical-align bottom
+        background rgba(1,1,1,0.2)
+
+        > .titlePart
+          float left
+
+          > .titleLink
+            font-weight bold
+            text-decoration none
+            color white
+            font-size 20px
+
+            &:hover
+              text-decoration underline
+
+          > .personal
+            font-size 20px
+
+        > .navLinks
+          display inline-block
+          padding 0px
+          margin 0px
+          float right
+          position relative
+          top 5px
+
+          > a
+            color white
+
+    > .pin
+      display none
+      width 100%
+      background-color #f8f8f8
+      margin-top 10px
+      margin-bottom 15px
+      box-shadow 1px 1px 5px #a0a0a0
+
+      > .formContainer
+        width calc(100% - 20px)
+        padding 10px
+
+        > .find
+
+          > form
+
+            > input
+              width 300px
+              padding 5px
+              margin-top 5px
+              margin-bottom 5px
+              border 1px solid #d0d0d0
+
+              &:focus
+                outline-width 0px
+
+            > button
+              background-color rgba(0, 183, 255, 0.64)
+              padding 6px
+              padding-right 10px
+              padding-left 10px
+              border-radius 2px
+              border 0px solid black
+              color white
+              cursor pointer
+
+              &:focus
+                outline-width 0px
+
+              &:active
+                background-color rgba(0, 183, 255, 1)
+
+        > .tagAndSave
+
+          display none
+
+          > form
+
+            > input
+              width 300px
+              padding 5px
+              margin-top 5px
+              margin-bottom 5px
+              border 1px solid #d0d0d0
+
+              &:focus
+                outline-width 0px
+
+            > button
+              background-color rgba(0, 183, 255, 0.64)
+              padding 6px
+              padding-right 10px
+              padding-left 10px
+              border-radius 2px
+              border 0px solid black
+              color white
+              cursor pointer
+
+              &:focus
+                outline-width 0px
+
+              &:active
+                background-color rgba(0, 183, 255, 1)
+
+        > .errors
+          margin-top 5px
+          font-size 13px
+
+    > .body
+      display block
+      width 100%
+      margin 0
+      padding 0
+      margin-top 10px
+
+      > .main
+        width 645px
+        display table
+
+        > .tagsList
+          width 155px
+          margin-left 5px
+          vertical-align top
+          display none
+
+          > .tags
+            padding 15px
+            padding-top 10px
+            width 135px
+
+            > .tagLink
+              text-decoration none
+
+              > span
+                display inline-block
+                margin-top 5px
+                padding 4px
+                padding-left 6px
+                padding-right 6px
+                background-color rgba(69, 146, 153, 0.6)
+                border-radius 3px
+                color #fff
+                font-size 13px
+                overflow auto
+
+                &:hover
+                  background-color rgba(60, 123, 129, 1)
+
+                &.active
+                  background-color rgba(60, 123, 129, 1)
+
+        > .links
+          width 660px
+          display table
+
+          > .linkBox
+            width 315px
+            margin-bottom 15px
+            cursor default
+            float left
+            background-color #f8f8f8
+            box-shadow 1px 1px 4px #b0b0b0
+
+            &:hover
+
+              > ul
+                > li
+                  &.url
+                    > .link
+                      text-decoration none
+                      color rgba(0,0,0,0.5)
+
+                  &.titleBox
+                    /*text-decoration underline*/
+
+            > ul
+              > li
+                &.titleBox
+                  margin-bottom 3px
+                  font-weight bold
+                  font-size 14px
+                  padding 10px
+                  padding-bottom 0px
+                  cursor pointer
+
+                  &:hover
+                    text-decoration underline
+
+
+                &.url
+                  position relative
+                  padding 10px
+                  padding-top 0px
+                  padding-bottom 10px
+
+                  > .link
+                    color rgba(0,0,0,0.5)
+                    text-decoration none
+                    font-size 12px
+                  > .icon-world-2
+                    color gray
+                    margin-right 5px
+                    font-size 12px
+                    position relative
+                    top 2px
+
+                &.picture
+                  padding 10px
+                  max-height 500px
+                  overflow hidden
+
+                  > img
+                    margin 0px
+                    padding 0px
+                    width 295px
+
+                &.change
+                  padding 10px
+                  padding-top 0px
+                  padding-bottom 5px
+                  font-size 13px
+                  color #a0a0a0
+                  display none
+
+                  > a
+                    color #a0a0a0
+
+                    &:hover
+                      color black
+
+                &.tagsBox
+                  display none
+                  padding 10px
+                  padding-top 0px
+
+                  > input.tags
+                    width 250px
+                    padding 5px
+                    margin-top 5px
+                    margin-bottom 5px
+                    border 1px solid #d0d0d0
+
+                    &:focus
+                      outline-width 0px
+
+                  > button
+                    background-color rgba(0, 183, 255, 0.64)
+                    padding 6px
+                    padding-right 10px
+                    padding-left 10px
+                    border-radius 2px
+                    border 0px solid black
+                    color white
+                    cursor pointer
+
+                    &:focus
+                      outline-width 0px
+
+                    &:active
+                      background-color rgba(0, 183, 255, 1)
+
+                &.tags
+                  color rgba(1,1,1,0.6)
+                  padding-left 10px
+                  padding-right 10px
+                  margin-bottom 2px
+
+                  > .icon-tag
+                    color gray
+                    margin-right 5px
+                    font-size 13px
+                    position relative
+                    top 2px
+
+                  > .tagLink
+                    text-decoration none
+
+                    > .tag
+                      display inline-block
+                      margin-right 3px
+                      margin-top 5px
+                      padding 4px
+                      padding-left 6px
+                      padding-right 6px
+                      background-color rgba(69, 146, 153, 0.9)
+                      border-radius 3px
+                      color white
+                      font-size 11px
+                      letter-spacing 0.2px
+
+                      &:hover
+                        background-color rgba(60, 123, 129, 1)

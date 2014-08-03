@@ -1,0 +1,353 @@
+img.selectable {
+  display: inline-block;
+  margin: 5px;
+  border: 1px solid #808080;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  max-width: 295px;
+  cursor: pointer;
+}
+img.selectable:hover {
+  border: 1px solid #00f;
+}
+img.active {
+  border: 1px solid #00f;
+}
+div.page {
+  float: left;
+}
+div.page ul.sidebar {
+  float: right;
+  width: 50px;
+  list-style: none;
+  position: fixed;
+  left: 50%;
+  margin-left: 305px;
+}
+div.page ul.sidebar li {
+  margin-bottom: 5px;
+}
+div.page ul.sidebar li img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  border: 0px solid #000;
+}
+div.page ul.sidebar li img.active {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  border: 0px solid #000;
+}
+div.page ul.sidebar li img:hover {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+div.page ul.overall {
+  float: left;
+  width: 645px;
+  margin-right: 5px;
+}
+div.page ul.overall > .title {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 15px;
+  height: 150px;
+  display: table;
+  background: url("/img/cover.jpg");
+  color: #fff;
+  -webkit-box-shadow: 1px 1px 5px #a0a0a0;
+  box-shadow: 1px 1px 5px #a0a0a0;
+}
+div.page ul.overall > .title > .titleContainer {
+  width: calc(100% - 20px);
+  padding: 10px;
+  display: table-cell;
+  vertical-align: bottom;
+  background: rgba(1,1,1,0.2);
+}
+div.page ul.overall > .title > .titleContainer > .titlePart {
+  float: left;
+}
+div.page ul.overall > .title > .titleContainer > .titlePart > .titleLink {
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+}
+div.page ul.overall > .title > .titleContainer > .titlePart > .titleLink:hover {
+  text-decoration: underline;
+}
+div.page ul.overall > .title > .titleContainer > .titlePart > .personal {
+  font-size: 20px;
+}
+div.page ul.overall > .title > .titleContainer > .navLinks {
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
+  float: right;
+  position: relative;
+  top: 5px;
+}
+div.page ul.overall > .title > .titleContainer > .navLinks > a {
+  color: #fff;
+}
+div.page ul.overall > .pin {
+  display: none;
+  width: 100%;
+  background-color: #f8f8f8;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  -webkit-box-shadow: 1px 1px 5px #a0a0a0;
+  box-shadow: 1px 1px 5px #a0a0a0;
+}
+div.page ul.overall > .pin > .formContainer {
+  width: calc(100% - 20px);
+  padding: 10px;
+}
+div.page ul.overall > .pin > .formContainer > .find > form > input {
+  width: 300px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #d0d0d0;
+}
+div.page ul.overall > .pin > .formContainer > .find > form > input:focus {
+  outline-width: 0px;
+}
+div.page ul.overall > .pin > .formContainer > .find > form > button {
+  background-color: rgba(0,183,255,0.64);
+  padding: 6px;
+  padding-right: 10px;
+  padding-left: 10px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  border: 0px solid #000;
+  color: #fff;
+  cursor: pointer;
+}
+div.page ul.overall > .pin > .formContainer > .find > form > button:focus {
+  outline-width: 0px;
+}
+div.page ul.overall > .pin > .formContainer > .find > form > button:active {
+  background-color: #00b7ff;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave {
+  display: none;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave > form > input {
+  width: 300px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #d0d0d0;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave > form > input:focus {
+  outline-width: 0px;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave > form > button {
+  background-color: rgba(0,183,255,0.64);
+  padding: 6px;
+  padding-right: 10px;
+  padding-left: 10px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  border: 0px solid #000;
+  color: #fff;
+  cursor: pointer;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave > form > button:focus {
+  outline-width: 0px;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave > form > button:active {
+  background-color: #00b7ff;
+}
+div.page ul.overall > .pin > .formContainer > .errors {
+  margin-top: 5px;
+  font-size: 13px;
+}
+div.page ul.overall > .body {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-top: 10px;
+}
+div.page ul.overall > .body > .main {
+  width: 645px;
+  display: table;
+}
+div.page ul.overall > .body > .main > .tagsList {
+  width: 155px;
+  margin-left: 5px;
+  vertical-align: top;
+  display: none;
+}
+div.page ul.overall > .body > .main > .tagsList > .tags {
+  padding: 15px;
+  padding-top: 10px;
+  width: 135px;
+}
+div.page ul.overall > .body > .main > .tagsList > .tags > .tagLink {
+  text-decoration: none;
+}
+div.page ul.overall > .body > .main > .tagsList > .tags > .tagLink > span {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+  background-color: rgba(69,146,153,0.6);
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 13px;
+  overflow: auto;
+}
+div.page ul.overall > .body > .main > .tagsList > .tags > .tagLink > span:hover {
+  background-color: #3c7b81;
+}
+div.page ul.overall > .body > .main > .tagsList > .tags > .tagLink > span.active {
+  background-color: #3c7b81;
+}
+div.page ul.overall > .body > .main > .links {
+  width: 660px;
+  display: table;
+}
+div.page ul.overall > .body > .main > .links > .linkBox {
+  width: 315px;
+  margin-bottom: 15px;
+  cursor: default;
+  float: left;
+  background-color: #f8f8f8;
+  -webkit-box-shadow: 1px 1px 4px #b0b0b0;
+  box-shadow: 1px 1px 4px #b0b0b0;
+}
+div.page ul.overall > .body > .main > .links > .linkBox:hover > ul > li.url > .link {
+  text-decoration: none;
+  color: rgba(0,0,0,0.5);
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.titleBox {
+  margin-bottom: 3px;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px;
+  padding-bottom: 0px;
+  cursor: pointer;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.titleBox:hover {
+  text-decoration: underline;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.url {
+  position: relative;
+  padding: 10px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.url > .link {
+  color: rgba(0,0,0,0.5);
+  text-decoration: none;
+  font-size: 12px;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.url > .icon-world-2 {
+  color: #808080;
+  margin-right: 5px;
+  font-size: 12px;
+  position: relative;
+  top: 2px;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.picture {
+  padding: 10px;
+  max-height: 500px;
+  overflow: hidden;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.picture > img {
+  margin: 0px;
+  padding: 0px;
+  width: 295px;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.change {
+  padding: 10px;
+  padding-top: 0px;
+  padding-bottom: 5px;
+  font-size: 13px;
+  color: #a0a0a0;
+  display: none;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.change > a {
+  color: #a0a0a0;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.change > a:hover {
+  color: #000;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tagsBox {
+  display: none;
+  padding: 10px;
+  padding-top: 0px;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tagsBox > input.tags {
+  width: 250px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #d0d0d0;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tagsBox > input.tags:focus {
+  outline-width: 0px;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tagsBox > button {
+  background-color: rgba(0,183,255,0.64);
+  padding: 6px;
+  padding-right: 10px;
+  padding-left: 10px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  border: 0px solid #000;
+  color: #fff;
+  cursor: pointer;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tagsBox > button:focus {
+  outline-width: 0px;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tagsBox > button:active {
+  background-color: #00b7ff;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tags {
+  color: rgba(1,1,1,0.6);
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 2px;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tags > .icon-tag {
+  color: #808080;
+  margin-right: 5px;
+  font-size: 13px;
+  position: relative;
+  top: 2px;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tags > .tagLink {
+  text-decoration: none;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tags > .tagLink > .tag {
+  display: inline-block;
+  margin-right: 3px;
+  margin-top: 5px;
+  padding: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+  background-color: rgba(69,146,153,0.9);
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 0.2px;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tags > .tagLink > .tag:hover {
+  background-color: #3c7b81;
+}
