@@ -60,7 +60,7 @@ app.get('/ping', function (req, res) {
 
 require('./routes')(app)
 
-appserver.listen(3000, function () {
+appserver.listen((process.env.PORT || 3000), function () {
   console.log('enthusiast server accepting requests on port 3000')
 })
 
