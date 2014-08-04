@@ -19,7 +19,7 @@ module.exports = function (app) {
         , lowerCaseAttributeNames: true
       });
 
-      $('head title').each(function () {
+      $('title').each(function () {
         title = $(this).text().trim();
         return false;
       });
@@ -75,7 +75,7 @@ module.exports = function (app) {
         , lowerCaseAttributeNames: true
       });
 
-      $('head title').each(function () {
+      $('title').each(function () {
         f.pass($(this).text());
         return false;
       });
