@@ -1,8 +1,14 @@
 extends global
 
+block styles
+  link(rel='stylesheet' href='/css/index.css')
+
 block content
-  h3 Welcome to Enthusiast
-  p Find, remember, and talk about the cool things on the Web. 
-    a(href='/register') Get started
-  p Already have an account? 
-    a(href='/login') Login
+  div.middlesex
+    h1 Welcome to Enthusiast
+    p Beautiful bookmarks for everything. 
+      a(href='/register') Get started
+    p Already have an account? 
+      a(href='/login') Login
+
+    img(src='/img/presentation.png')

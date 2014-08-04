@@ -2,15 +2,17 @@ extends global
 
 block styles
   link(rel='stylesheet', href='/css/static.css')
+  link(rel='stylesheet' href='/css/index.css')
 
 block scripts
   script(src='/js/static.js', type='text/javascript')
 
 block content
-  h3= title
-  form(id='loginForm' action='/login' method='POST')
-    input(type='text', id='username', placeholder='username')
-    input(type='password', id='password', placeholder='*********')
-    input(type='submit', id='login', value='Login')
-  div.errors
-    &nbsp;
+  div.middlesex
+    h1= title
+    form(id='loginForm' action='/login' method='POST')
+      input(type='text', id='username', placeholder='username')
+      input(type='password', id='password', placeholder='*********')
+      input(type='submit', id='login', value='Login')
+    div.errors
+      &nbsp;
