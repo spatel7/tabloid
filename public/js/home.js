@@ -177,11 +177,24 @@ $(document).ready(function() {
       });
     })*/
 
-    $('.links').masonry({
+    /*$('.links').masonry({
         itemSelector: '.linkBox'
       , columnWidth: 315
       , gutter: 15
-    })
+    })*/
+
+    var $container = $('.links');
+
+    $container.imagesLoaded( function() {
+      $container.masonry({
+          itemSelector: '.linkBox'
+        , columnWidth: 315
+        , gutter: 15
+      });
+
+      $('.holder').hide();
+      $('.links').css('visibility', 'visible');
+    });
   })
 })
 

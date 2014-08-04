@@ -218,6 +218,7 @@ div.page ul.overall > .body > .main > .tagsList > .tags > .tagLink > span.active
 div.page ul.overall > .body > .main > .links {
   width: 660px;
   display: table;
+  visibility: hidden;
 }
 div.page ul.overall > .body > .main > .links > .linkBox {
   width: 315px;
@@ -277,7 +278,7 @@ div.page ul.overall > .body > .main > .links > .linkBox > ul > li.url > .link {
 }
 div.page ul.overall > .body > .main > .links > .linkBox > ul > li.url > .icon-world-2 {
   color: #0a530a;
-  margin-right: 5px;
+  margin-right: 6px;
   font-size: 12px;
   position: relative;
   top: 2px;
@@ -293,7 +294,7 @@ div.page ul.overall > .body > .main > .links > .linkBox > ul > li.date > .time {
 }
 div.page ul.overall > .body > .main > .links > .linkBox > ul > li.date > .icon-time {
   color: #be3030;
-  margin-right: 5px;
+  margin-right: 6px;
   font-size: 12px;
   position: relative;
   top: 2px;
