@@ -57,7 +57,7 @@ div.page
       display table
       background url('/img/cover.jpg')
       color white
-      box-shadow 1px 1px 5px #a0a0a0
+      /*box-shadow 1px 1px 5px #a0a0a0*/
 
       > .titleContainer
         width calc(100% - 20px)
@@ -220,12 +220,13 @@ div.page
           > .linkBox
             width 315px
             margin-bottom 15px
-            cursor default
+            cursor pointer
             float left
             background-color #f8f8f8
-            box-shadow 1px 1px 4px #b0b0b0
+            /*box-shadow 1px 1px 4px #b0b0b0*/
 
             &:hover
+              box-shadow 1px 1px 4px #a0a0a0
 
               > ul
                 > li
@@ -241,14 +242,14 @@ div.page
               > li
                 &.titleBox
                   margin-bottom 3px
-                  font-weight bold
+                  font-weight normal
                   font-size 14px
                   padding 10px
                   padding-bottom 0px
                   cursor pointer
 
                   &:hover
-                    text-decoration underline
+                    text-decoration none
 
 
                 &.url

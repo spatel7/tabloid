@@ -40,7 +40,7 @@ app.configure(function() {
   app.use(express.session({
       secret: 'enthusiasticabouterrythin'
     , store: new MongoStore({
-          url: "mongodb://sahilpatel:12345@kahana.mongohq.com:10049/enthusiast"
+          url: db
         , 'auto_reconnect': true
       })
     , cookie: {

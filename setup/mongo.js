@@ -1,4 +1,5 @@
-global.mongoose = require('mongoose').connect('mongodb://sahilpatel:12345@kahana.mongohq.com:10049/enthusiast')
+global.db = ( process.env.NODE_ENV === 'production' ? 'mongodb://sahilpatel:12345@kahana.mongohq.com:10049/enthusiast' : 'mongodb://localhost/enthusiast')
+global.mongoose = require('mongoose').connect(db)
 
 mongoose.connection.on('error', function (err) { console.log(err) })
 

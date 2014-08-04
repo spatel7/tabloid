@@ -56,13 +56,13 @@ $(function() {
 
 $(function() {
   $('.linkBox').click(function() {
-    //window.open($(this).find('#bounceUrl').val(), '_blank');
+    window.open($(this).find('#bounceUrl').val(), '_blank');
   })
 })
 
 $(function() {
   $('.titleBox').click(function() {
-    window.open($(this).parent().parent().find('#bounceUrl').val(), '_blank');
+    //window.open($(this).parent().parent().find('#bounceUrl').val(), '_blank');
   })
 })
 
