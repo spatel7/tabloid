@@ -15,7 +15,8 @@ module.exports = function (app) {
     var f = ff(function() {
       User.findOne({ _id: user._id }).populate({path: 'links', options: { sort: { added: -1 }}}).exec(f.slot());
     }).onSuccess(function (doc) {
-      return res.render('home', { user: doc, title: 'Enthusiast for ' + user.name.firstname, tagSelected: req.params.tag })
+      user = doc;
+      return res.render('home', { user: user, title: 'Enthusiast for ' + user.name.firstname, tagSelected: req.params.tag })
     });
   });
 
@@ -28,7 +29,8 @@ module.exports = function (app) {
         User.findOne({ _id: user._id }).populate({path: 'links', options: { sort: { added: -1 }}}).exec(f.slot());
       }
     }).onSuccess(function (doc) {
-      return res.render('home', { user: doc, title: 'Enthusiast for ' + user.name.firstname, tagSelected: req.params.tag })
+      user = doc;
+      return res.render('home', { user: user, title: 'Enthusiast for ' + user.name.firstname, tagSelected: req.params.tag })
     });
   });
 

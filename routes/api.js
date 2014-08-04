@@ -7,6 +7,7 @@ module.exports = function (app) {
     var url = req.query.url;
     var title;
     var images = [];
+    var count;
     if (!url) {
       return res.send(400, 'No such website found.');
     }
@@ -22,6 +23,8 @@ module.exports = function (app) {
         title = $(this).text().trim();
         return false;
       });
+
+      count = $('img').length;
 
       $('img, div').each(function () {
         var src;
@@ -55,7 +58,7 @@ module.exports = function (app) {
         return res.send(400, "Sorry something went wrong");
       }
     }).onSuccess(function () {
-      return res.send({ title: title, images: images })
+      return res.send({ title: title, images: images, count: count })
     })
   })
 
