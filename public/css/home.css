@@ -228,8 +228,8 @@ div.page ul.overall > .body > .main > .links > .linkBox {
 /*box-shadow 1px 1px 4px #b0b0b0*/
 }
 div.page ul.overall > .body > .main > .links > .linkBox:hover {
-  -webkit-box-shadow: 1px 1px 4px #a0a0a0;
-  box-shadow: 1px 1px 4px #a0a0a0;
+  -webkit-box-shadow: 1px 1px 2px #a0a0a0;
+  box-shadow: 1px 1px 2px #a0a0a0;
 }
 div.page ul.overall > .body > .main > .links > .linkBox:hover > ul > li.url > .link {
   text-decoration: none;
@@ -246,11 +246,29 @@ div.page ul.overall > .body > .main > .links > .linkBox > ul > li.titleBox {
 div.page ul.overall > .body > .main > .links > .linkBox > ul > li.titleBox:hover {
   text-decoration: none;
 }
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.matches {
+  position: relative;
+  padding: 10px;
+  padding-top: 0px;
+  padding-bottom: 5px;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.matches > .other {
+  color: rgba(0,0,0,0.5);
+  font-size: 12px;
+  text-decoration: none;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.matches > .icon-tag {
+  color: #ceae5b;
+  margin-right: 5px;
+  font-size: 12px;
+  position: relative;
+  top: 2px;
+}
 div.page ul.overall > .body > .main > .links > .linkBox > ul > li.url {
   position: relative;
   padding: 10px;
   padding-top: 0px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 div.page ul.overall > .body > .main > .links > .linkBox > ul > li.url > .link {
   color: rgba(0,0,0,0.5);
@@ -258,7 +276,23 @@ div.page ul.overall > .body > .main > .links > .linkBox > ul > li.url > .link {
   font-size: 12px;
 }
 div.page ul.overall > .body > .main > .links > .linkBox > ul > li.url > .icon-world-2 {
-  color: #808080;
+  color: #0a530a;
+  margin-right: 5px;
+  font-size: 12px;
+  position: relative;
+  top: 2px;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.date {
+  padding: 10px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.date > .time {
+  color: rgba(0,0,0,0.5);
+  font-size: 12px;
+}
+div.page ul.overall > .body > .main > .links > .linkBox > ul > li.date > .icon-time {
+  color: #be3030;
   margin-right: 5px;
   font-size: 12px;
   position: relative;
@@ -268,6 +302,7 @@ div.page ul.overall > .body > .main > .links > .linkBox > ul > li.picture {
   padding: 10px;
   max-height: 500px;
   overflow: hidden;
+  min-height: 0px;
 }
 div.page ul.overall > .body > .main > .links > .linkBox > ul > li.picture > img {
   margin: 0px;
