@@ -220,7 +220,13 @@ div.page ul.overall > .body > .main > .links {
   display: table;
   visibility: hidden;
 }
-div.page ul.overall > .body > .main > .links > .linkBox {
+div.page ul.overall > .body > .main > .links > .flip-container {
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+}
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox {
   width: 315px;
   margin-bottom: 15px;
   cursor: pointer;
@@ -228,15 +234,15 @@ div.page ul.overall > .body > .main > .links > .linkBox {
   background-color: #f8f8f8;
 /*box-shadow 1px 1px 4px #b0b0b0*/
 }
-div.page ul.overall > .body > .main > .links > .linkBox:hover {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox:hover {
   -webkit-box-shadow: 1px 1px 2px #a0a0a0;
   box-shadow: 1px 1px 2px #a0a0a0;
 }
-div.page ul.overall > .body > .main > .links > .linkBox:hover > ul > li.url > .link {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox:hover > ul > li.url > .link {
   text-decoration: none;
   color: rgba(0,0,0,0.5);
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.titleBox {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.titleBox {
   margin-bottom: 3px;
   font-weight: normal;
   font-size: 14px;
@@ -244,73 +250,76 @@ div.page ul.overall > .body > .main > .links > .linkBox > ul > li.titleBox {
   padding-bottom: 0px;
   cursor: pointer;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.titleBox:hover {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.titleBox:hover {
   text-decoration: none;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.matches {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.matches {
   position: relative;
   padding: 10px;
   padding-top: 0px;
   padding-bottom: 5px;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.matches > .other {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.matches > .other {
   color: rgba(0,0,0,0.5);
   font-size: 12px;
   text-decoration: none;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.matches > .icon-tag {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.matches > .icon-tag {
   color: #ceae5b;
   margin-right: 5px;
   font-size: 12px;
   position: relative;
   top: 2px;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.url {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.url {
   position: relative;
   padding: 10px;
   padding-top: 0px;
   padding-bottom: 5px;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.url > .link {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.url > .link {
   color: rgba(0,0,0,0.5);
   text-decoration: none;
   font-size: 12px;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.url > .icon-world-2 {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.url > .icon-world-2 {
   color: #0a530a;
   margin-right: 6px;
   font-size: 12px;
   position: relative;
   top: 2px;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.date {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.date {
   padding: 10px;
   padding-top: 0px;
   padding-bottom: 10px;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.date > .time {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.date > .time {
   color: rgba(0,0,0,0.5);
   font-size: 12px;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.date > .icon-time {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.date > .icon-time {
   color: #be3030;
   margin-right: 6px;
   font-size: 12px;
   position: relative;
   top: 2px;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.picture {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.date > .icon-time:hover {
+  color: #f00;
+}
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.picture {
   padding: 10px;
   max-height: 500px;
   overflow: hidden;
   min-height: 0px;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.picture > img {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.picture > img {
   margin: 0px;
   padding: 0px;
   width: 295px;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.change {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.change {
   padding: 10px;
   padding-top: 0px;
   padding-bottom: 5px;
@@ -318,28 +327,28 @@ div.page ul.overall > .body > .main > .links > .linkBox > ul > li.change {
   color: #a0a0a0;
   display: none;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.change > a {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.change > a {
   color: #a0a0a0;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.change > a:hover {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.change > a:hover {
   color: #000;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tagsBox {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.tagsBox {
   display: none;
   padding: 10px;
   padding-top: 0px;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tagsBox > input.tags {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.tagsBox > input.tags {
   width: 250px;
   padding: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
   border: 1px solid #d0d0d0;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tagsBox > input.tags:focus {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.tagsBox > input.tags:focus {
   outline-width: 0px;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tagsBox > button {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.tagsBox > button {
   background-color: rgba(0,183,255,0.64);
   padding: 6px;
   padding-right: 10px;
@@ -350,29 +359,29 @@ div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tagsBox > butt
   color: #fff;
   cursor: pointer;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tagsBox > button:focus {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.tagsBox > button:focus {
   outline-width: 0px;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tagsBox > button:active {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.tagsBox > button:active {
   background-color: #00b7ff;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tags {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.tags {
   color: rgba(1,1,1,0.6);
   padding-left: 10px;
   padding-right: 10px;
   margin-bottom: 2px;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tags > .icon-tag {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.tags > .icon-tag {
   color: #808080;
   margin-right: 5px;
   font-size: 13px;
   position: relative;
   top: 2px;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tags > .tagLink {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.tags > .tagLink {
   text-decoration: none;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tags > .tagLink > .tag {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.tags > .tagLink > .tag {
   display: inline-block;
   margin-right: 3px;
   margin-top: 5px;
@@ -386,6 +395,6 @@ div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tags > .tagLin
   font-size: 11px;
   letter-spacing: 0.2px;
 }
-div.page ul.overall > .body > .main > .links > .linkBox > ul > li.tags > .tagLink > .tag:hover {
+div.page ul.overall > .body > .main > .links > .flip-container > .flipper > .linkBox > ul > li.tags > .tagLink > .tag:hover {
   background-color: #3c7b81;
 }

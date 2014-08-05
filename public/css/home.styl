@@ -218,175 +218,183 @@ div.page
           display table
           visibility hidden
 
-          > .linkBox
-            width 315px
-            margin-bottom 15px
-            cursor pointer
-            float left
-            background-color #f8f8f8
-            /*box-shadow 1px 1px 4px #b0b0b0*/
+          > .flip-container
+            perspective 1000
 
-            &:hover
-              box-shadow 1px 1px 2px #a0a0a0
+            > .flipper
 
-              > ul
-                > li
-                  &.url
-                    > .link
-                      text-decoration none
-                      color rgba(0,0,0,0.5)
+              > .linkBox
+                width 315px
+                margin-bottom 15px
+                cursor pointer
+                float left
+                background-color #f8f8f8
+                /*box-shadow 1px 1px 4px #b0b0b0*/
 
-                  &.titleBox
-                    /*text-decoration underline*/
+                &:hover
+                  box-shadow 1px 1px 2px #a0a0a0
 
-            > ul
-              > li
-                &.titleBox
-                  margin-bottom 3px
-                  font-weight normal
-                  font-size 14px
-                  padding 10px
-                  padding-bottom 0px
-                  cursor pointer
+                  > ul
+                    > li
+                      &.url
+                        > .link
+                          text-decoration none
+                          color rgba(0,0,0,0.5)
 
-                  &:hover
-                    text-decoration none
+                      &.titleBox
+                        /*text-decoration underline*/
 
-                &.matches
-                  position relative
-                  padding 10px
-                  padding-top 0px
-                  padding-bottom 5px
-
-                  > .other
-                    color rgba(0, 0, 0, 0.5)
-                    font-size 12px
-                    text-decoration none
-
-                  > .icon-tag
-                    color rgb(206, 174, 91)
-                    margin-right 5px
-                    font-size 12px
-                    position relative
-                    top 2px
-
-                &.url
-                  position relative
-                  padding 10px
-                  padding-top 0px
-                  padding-bottom 5px
-
-                  > .link
-                    color rgba(0,0,0,0.5)
-                    text-decoration none
-                    font-size 12px
-                  > .icon-world-2
-                    color rgb(10, 83, 10)
-                    margin-right 6px
-                    font-size 12px
-                    position relative
-                    top 2px
-
-                &.date
-                  padding 10px
-                  padding-top 0px
-                  padding-bottom 10px
-
-                  > .time
-                    color rgba(0,0,0,0.5)
-                    font-size 12px
-
-                  > .icon-time
-                    color rgb(190, 48, 48)
-                    margin-right 6px
-                    font-size 12px
-                    position relative
-                    top 2px
-
-                &.picture
-                  padding 10px
-                  max-height 500px
-                  overflow hidden
-                  min-height 0px
-
-                  > img
-                    margin 0px
-                    padding 0px
-                    width 295px
-
-                &.change
-                  padding 10px
-                  padding-top 0px
-                  padding-bottom 5px
-                  font-size 13px
-                  color #a0a0a0
-                  display none
-
-                  > a
-                    color #a0a0a0
-
-                    &:hover
-                      color black
-
-                &.tagsBox
-                  display none
-                  padding 10px
-                  padding-top 0px
-
-                  > input.tags
-                    width 250px
-                    padding 5px
-                    margin-top 5px
-                    margin-bottom 5px
-                    border 1px solid #d0d0d0
-
-                    &:focus
-                      outline-width 0px
-
-                  > button
-                    background-color rgba(0, 183, 255, 0.64)
-                    padding 6px
-                    padding-right 10px
-                    padding-left 10px
-                    border-radius 2px
-                    border 0px solid black
-                    color white
-                    cursor pointer
-
-                    &:focus
-                      outline-width 0px
-
-                    &:active
-                      background-color rgba(0, 183, 255, 1)
-
-                &.tags
-                  color rgba(1,1,1,0.6)
-                  padding-left 10px
-                  padding-right 10px
-                  margin-bottom 2px
-
-                  > .icon-tag
-                    color gray
-                    margin-right 5px
-                    font-size 13px
-                    position relative
-                    top 2px
-
-                  > .tagLink
-                    text-decoration none
-
-                    > .tag
-                      display inline-block
-                      margin-right 3px
-                      margin-top 5px
-                      padding 4px
-                      padding-left 6px
-                      padding-right 6px
-                      background-color rgba(69, 146, 153, 0.9)
-                      border-radius 3px
-                      color white
-                      font-size 11px
-                      letter-spacing 0.2px
+                > ul
+                  > li
+                    &.titleBox
+                      margin-bottom 3px
+                      font-weight normal
+                      font-size 14px
+                      padding 10px
+                      padding-bottom 0px
+                      cursor pointer
 
                       &:hover
-                        background-color rgba(60, 123, 129, 1)
+                        text-decoration none
+
+                    &.matches
+                      position relative
+                      padding 10px
+                      padding-top 0px
+                      padding-bottom 5px
+
+                      > .other
+                        color rgba(0, 0, 0, 0.5)
+                        font-size 12px
+                        text-decoration none
+
+                      > .icon-tag
+                        color rgb(206, 174, 91)
+                        margin-right 5px
+                        font-size 12px
+                        position relative
+                        top 2px
+
+                    &.url
+                      position relative
+                      padding 10px
+                      padding-top 0px
+                      padding-bottom 5px
+
+                      > .link
+                        color rgba(0,0,0,0.5)
+                        text-decoration none
+                        font-size 12px
+                      > .icon-world-2
+                        color rgb(10, 83, 10)
+                        margin-right 6px
+                        font-size 12px
+                        position relative
+                        top 2px
+
+                    &.date
+                      padding 10px
+                      padding-top 0px
+                      padding-bottom 10px
+
+                      > .time
+                        color rgba(0,0,0,0.5)
+                        font-size 12px
+
+                      > .icon-time
+                        color rgb(190, 48, 48)
+                        margin-right 6px
+                        font-size 12px
+                        position relative
+                        top 2px
+
+                        &:hover
+                          color #FF0000
+
+                    &.picture
+                      padding 10px
+                      max-height 500px
+                      overflow hidden
+                      min-height 0px
+
+                      > img
+                        margin 0px
+                        padding 0px
+                        width 295px
+
+                    &.change
+                      padding 10px
+                      padding-top 0px
+                      padding-bottom 5px
+                      font-size 13px
+                      color #a0a0a0
+                      display none
+
+                      > a
+                        color #a0a0a0
+
+                        &:hover
+                          color black
+
+                    &.tagsBox
+                      display none
+                      padding 10px
+                      padding-top 0px
+
+                      > input.tags
+                        width 250px
+                        padding 5px
+                        margin-top 5px
+                        margin-bottom 5px
+                        border 1px solid #d0d0d0
+
+                        &:focus
+                          outline-width 0px
+
+                      > button
+                        background-color rgba(0, 183, 255, 0.64)
+                        padding 6px
+                        padding-right 10px
+                        padding-left 10px
+                        border-radius 2px
+                        border 0px solid black
+                        color white
+                        cursor pointer
+
+                        &:focus
+                          outline-width 0px
+
+                        &:active
+                          background-color rgba(0, 183, 255, 1)
+
+                    &.tags
+                      color rgba(1,1,1,0.6)
+                      padding-left 10px
+                      padding-right 10px
+                      margin-bottom 2px
+
+                      > .icon-tag
+                        color gray
+                        margin-right 5px
+                        font-size 13px
+                        position relative
+                        top 2px
+
+                      > .tagLink
+                        text-decoration none
+
+                        > .tag
+                          display inline-block
+                          margin-right 3px
+                          margin-top 5px
+                          padding 4px
+                          padding-left 6px
+                          padding-right 6px
+                          background-color rgba(69, 146, 153, 0.9)
+                          border-radius 3px
+                          color white
+                          font-size 11px
+                          letter-spacing 0.2px
+
+                          &:hover
+                            background-color rgba(60, 123, 129, 1)

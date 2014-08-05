@@ -210,3 +210,13 @@ $(document).bind('keydown', 'meta+i', function (event) {
   $('.pin').toggle();
   $('.formContainer .find').find('input').focus();
 });
+
+$(function() {
+  $('.icon-time').click(function (event) {
+    event.stopPropagation();
+    var r = confirm("Are you sure you want to delete this bookmark?");
+    if (r == true) {
+      window.location = $(this).parent().parent().find('#deleteLinkBounce').val();
+    }
+  })
+})

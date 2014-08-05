@@ -41,34 +41,37 @@ block content
             span Loading bookmarks...
           li.links
             for link in user.links
-              div.linkBox
-                input(type='hidden', id='bounceUrl', value='#{link.url}')
-                ul
-                  li.titleBox
-                    span #{link.title}
-                  li.tags
-                    for tag in link.tags
-                      a(href='/home/tag/#{tag}').tagLink
-                        span.tag #{tag.length < 48 ? tag : tag.slice(0, 45) + '...'}
-                  li.picture
-                    if link.image
-                      img(src='#{link.image}' style='max-width: 295px')
-                  li.matches
-                    span.icon-tag
-                    a(href='#').other 12 other people bookmarked this (placeholder)
-                  li.url
-                    span.icon-world-2
-                    a(href='#{link.url.slice(0, link.url.indexOf(":"))}://#{link.miniUrl}' target="_blank").link #{link.miniUrl}
-                  li.date
-                    span.icon-time
-                    span.time #{link.added}
-                  li.change
-                    a(href='/home/delete/#{link._id}').deleteLink Delete
-                  li.tagsBox
-                    form(id='tagsBoxForm' action='#' method='POST')
-                      input(type='text', id='tags', placeholder='tags (seperate with commas)').tags
-                      br
-                      button(type='submit', name='submit') Save tags
+              div.flip-container
+                div.flipper
+                  div.linkBox
+                    input(type='hidden', id='bounceUrl', value='#{link.url}')
+                    ul
+                      li.titleBox
+                        span #{link.title}
+                      li.tags
+                        for tag in link.tags
+                          a(href='/home/tag/#{tag}').tagLink
+                            span.tag #{tag.length < 48 ? tag : tag.slice(0, 45) + '...'}
+                      li.picture
+                        if link.image
+                          img(src='#{link.image}' style='max-width: 295px')
+                      li.matches
+                        span.icon-tag
+                        a(href='#').other 12 other people bookmarked this (placeholder)
+                      li.url
+                        span.icon-world-2
+                        a(href='#{link.url.slice(0, link.url.indexOf(":"))}://#{link.miniUrl}' target="_blank").link #{link.miniUrl}
+                      li.date
+                        span.icon-time
+                        span.time #{link.added}
+                      li.change
+                        a(href='/home/delete/#{link._id}').deleteLink Delete
+                        input(type='hidden', id='deleteLinkBounce', value='/home/delete/#{link._id}')
+                      li.tagsBox
+                        form(id='tagsBoxForm' action='#' method='POST')
+                          input(type='text', id='tags', placeholder='tags (seperate with commas)').tags
+                          br
+                          button(type='submit', name='submit') Save tags
             else
               p You have no links!
               p Add <b>https://medium.com/@manicho/how-a-password-changed-my-life-7af5d5f28038</b> to get started.
