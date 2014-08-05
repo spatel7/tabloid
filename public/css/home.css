@@ -32,6 +32,7 @@ div.page ul.sidebar {
   position: fixed;
   left: 50%;
   margin-left: 305px;
+  display: none;
 }
 div.page ul.sidebar li {
   margin-bottom: 5px;
