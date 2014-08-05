@@ -13,7 +13,11 @@ module.exports = function (app) {
   app.get('/home', ensureAuthenticated, function (req, res) {
     var user = req.user;
     var f = ff(function() {
-      User.findOne({ _id: user._id }).populate({path: 'links', options: { sort: { added: -1 }}}).exec(f.slot());
+      if (req.query.tag) {
+        User.findOne({ _id: user._id }).populate({path: 'links', match: { tags: {$in: [req.params.tag]} }, options: { sort: { added: -1 }}}).exec(f.slot()); 
+      } else {
+        User.findOne({ _id: user._id }).populate({path: 'links', options: { sort: { added: -1 }}}).exec(f.slot());
+      }
     }).onSuccess(function (doc) {
       user = doc;
       return res.render('home', { user: user, title: 'Enthusiast for ' + user.name.firstname, tagSelected: req.params.tag })

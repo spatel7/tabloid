@@ -1,55 +1,7 @@
-var images = [
-    'http://gspp.berkeley.edu/assets/img/made/assets/uploads/page/splash-contact-center_500_240_80.jpg'
-  , 'http://www.ljic.edu/portals/0/4TpW90eWR62kzuE3887J_New-York-City.jpg'
-  , 'http://upload.wikimedia.org/wikipedia/commons/4/44/Orleans.bourbon.arp.750pix.jpg'
-  , 'http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2014/7/26/1406388334967/Israeli-ground-operation--011.jpg'
-]
+// jQuery event listeners
 
 $(function() {
-  $('.tagLink').click(function(event){
-    //event.preventDefault();
-  })
-})
-
-$(function() {
-  $('.updateLink').click(function() {
-    $(this).parent().parent().find('.tagsBox').toggle();
-  })
-})
-
-$(function() {
-  $('.deleteLink').click(function(event) {
-    var c = confirm('Are you sure you want to delete this bookmark?');
-    if (!c) {
-      event.preventDefault();
-    }
-  })
-})
-
-/*$(function() {
-  $('.tagLink').hover(function () {
-    $(this).parent().parent().find('.title').css('text-decoration', 'none');
-  }, function () {
-    $(this).parent().parent().find('.title').css('text-decoration', 'underline')
-  })
-})
-
-$(function() {
-  $('.linkBox').hover(function() {
-    $(this).find('li.title').css('text-decoration', 'underline')
-  }, function () {
-    $(this).find('li.title').css('text-decoration', 'none')
-  })
-})*/
-
-$(function() {
-  $('.link').click(function(event){
-    event.stopPropagation();
-  })
-})
-
-$(function() {
-  $('.tagLink').click(function(event){
+  $('.link, .tagLink').click(function(event){
     event.stopPropagation();
   })
 })
@@ -61,19 +13,27 @@ $(function() {
 })
 
 $(function() {
-  $('.titleBox').click(function() {
-    //window.open($(this).parent().parent().find('#bounceUrl').val(), '_blank');
-  })
+  $('.selectable').click(function () {
+    alert('found');
+    $(this).addClass('active');
+  }) 
 })
-
-var pinNew = function() {
-  $('.pin').toggle();
-  $('.formContainer .find').find('input').focus();
-}
 
 $(function() {
   $('#pinToggle').click(pinNew);
 })
+
+$(function() {
+  $('.icon-time').click(function (event) {
+    event.stopPropagation();
+    var r = confirm("Are you sure you want to delete this bookmark?");
+    if (r == true) {
+      window.location = $(this).parent().parent().find('#deleteLinkBounce').val();
+    }
+  })
+})
+
+// form submissions
 
 $(function() {
   $('#findForm').submit(function(event) {
@@ -121,22 +81,6 @@ $(function() {
 })
 
 $(function() {
-  $('.selectable').click(function () {
-    alert('found');
-    $(this).addClass('active');
-  }) 
-})
-
-var refresh = function (el) {
-  var elems = document.getElementsByClassName('selectable');
-  for (var i = 0; i < elems.length; i++) {
-    elems[i].className = 'selectable';
-  }
-  el.className = el.className + ' active';
-  $('#pinForm #image').val(el.getAttribute('src'));
-}
-
-$(function() {
   $('#pinForm').submit(function(event) {
     event.preventDefault();
     var url = $('#url').val();
@@ -166,30 +110,10 @@ $(function() {
   })
 })
 
-var showError = function (err) {
-  $('.errors').html("<font color='red'>" + err + "</font>");
-}
+// document wide functions
 
 $(document).ready(function() {
   $(function(){
-    // first vary the heights
-    /*($('.picture').each(function() {
-      $(this).css('height', function () {
-        var newHeight = parseInt(Math.random() * 0);
-        $(this).find('img').attr('src', images[parseInt(Math.random() * 3)]);
-        $(this).find('img').css('height', newHeight);
-        $(this).find('img').css('width', 295);
-        $(this).find('img').hide();
-        return newHeight;
-      });
-    })*/
-
-    /*$('.links').masonry({
-        itemSelector: '.linkBox'
-      , columnWidth: 315
-      , gutter: 15
-    })*/
-
     var $container = $('.links');
 
     $container.imagesLoaded( function() {
@@ -211,12 +135,22 @@ $(document).bind('keydown', 'meta+i', function (event) {
   $('.formContainer .find').find('input').focus();
 });
 
-$(function() {
-  $('.icon-time').click(function (event) {
-    event.stopPropagation();
-    var r = confirm("Are you sure you want to delete this bookmark?");
-    if (r == true) {
-      window.location = $(this).parent().parent().find('#deleteLinkBounce').val();
-    }
-  })
-})
+// other functions
+
+var pinNew = function() {
+  $('.pin').toggle();
+  $('.formContainer .find').find('input').focus();
+}
+
+var refresh = function (el) {
+  var elems = document.getElementsByClassName('selectable');
+  for (var i = 0; i < elems.length; i++) {
+    elems[i].className = 'selectable';
+  }
+  el.className = el.className + ' active';
+  $('#pinForm #image').val(el.getAttribute('src'));
+}
+
+var showError = function (err) {
+  $('.errors').html("<font color='red'>" + err + "</font>");
+}
