@@ -84,7 +84,14 @@ $(function() {
       , url: '/api/scrape?url=' + url
     }).done(function (data) {
       $('.formContainer .tagAndSave').find('#url').val(""+url);
-      $('.formContainer .tagAndSave').find('#title').val(""+data.title);
+      if (!data.title) {
+        $('.formContainer .tagAndSave').find('#title').attr('type', 'text');
+        $('.formContainer .tagAndSave').find('#title').attr('placeholder', 'title (couldnt find one, sorry!)');
+        $('.formContainer .tagAndSave').find('#title').val("");
+        $('.formContainer .tagAndSave').find('#title').after('<br>');
+      } else {
+        $('.formContainer .tagAndSave').find('#title').val(""+data.title);
+      }
       $('.formContainer .tagAndSave .title').html(data.title);
       $('.formContainer .find').hide();
       $('.formContainer .tagAndSave').show();
