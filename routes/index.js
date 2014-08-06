@@ -4,6 +4,7 @@ var ff = require('ff')
   , Link = mongoose.model('Link')
   //, Tag = mongoose.model('Tag');
 
+// use regex so theres no need for so many replaces
 var _minifyUrl = function (url) {
   url = url.replace('https://', '').replace('http://', '').replace('www.','');
   return url.slice(0, (url.indexOf('/') !== -1 ? url.indexOf('/') : url.length));
@@ -14,21 +15,7 @@ module.exports = function (app) {
     var user = req.user;
     var f = ff(function() {
       if (req.query.tag) {
-        User.findOne({ _id: user._id }).populate({path: 'links', match: { tags: {$in: [req.params.tag]} }, options: { sort: { added: -1 }}}).exec(f.slot()); 
-      } else {
-        User.findOne({ _id: user._id }).populate({path: 'links', options: { sort: { added: -1 }}}).exec(f.slot());
-      }
-    }).onSuccess(function (doc) {
-      user = doc;
-      return res.render('home', { user: user, title: 'Enthusiast for ' + user.name.firstname, tagSelected: req.params.tag })
-    });
-  });
-
-  app.get('/home/tag/:tag?', ensureAuthenticated, function (req, res) {
-    var user = req.user;
-    var f = ff(function() {
-      if (req.params.tag) {
-        User.findOne({ _id: user._id }).populate({path: 'links', match: { tags: {$in: [req.params.tag]} }, options: { sort: { added: -1 }}}).exec(f.slot());
+        User.findOne({ _id: user._id }).populate({path: 'links', match: { tags: {$in: [req.query.tag]} }, options: { sort: { added: -1 }}}).exec(f.slot()); 
       } else {
         User.findOne({ _id: user._id }).populate({path: 'links', options: { sort: { added: -1 }}}).exec(f.slot());
       }

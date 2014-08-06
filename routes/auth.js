@@ -13,7 +13,7 @@ var pages = {
     }
 }
 
-var _escortUser = function (requested) {
+var _rerouteUser = function (requested) {
   return function (req, res) {
     if (req.isAuthenticated()) {
       return res.redirect('/home');
@@ -24,10 +24,10 @@ var _escortUser = function (requested) {
 }
 
 module.exports = function (app) {
-  app.get('/', _escortUser('index'))
-  app.get('/index', _escortUser('index'))
-  app.get('/register', _escortUser('register'));
-  app.get('/login', _escortUser('login'));
+  app.get('/', _rerouteUser('index'))
+  app.get('/index', _rerouteUser('index'))
+  app.get('/register', _rerouteUser('register'));
+  app.get('/login', _rerouteUser('login'));
 
   app.post('/register', function (req, res) {
     var firstname = req.body.firstname;

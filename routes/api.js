@@ -26,6 +26,7 @@ module.exports = function (app) {
 
       count = $('img').length;
 
+      // overall, need a much better algorithm to catch all images on a page
       $('img, div').each(function () {
         var src;
         if ($(this).is('img')) {

@@ -58,7 +58,7 @@ block content
                         span #{link.title}
                       li.tags
                         for tag in link.tags
-                          a(href='/home/tag/#{tag}').tagLink
+                          a(href='/home?tag=#{tag}').tagLink
                             span.tag #{tag.length < 48 ? tag : tag.slice(0, 45) + '...'}
                       li.picture
                         if link.image
@@ -93,7 +93,7 @@ block content
               a(href='/home').tagLink
                 span(class=(tagSelected ? '' : 'active')) All Tags
               for tag in user.tags
-                a(href='/home/tag/#{tag}').tagLink
+                a(href='/home?tag=#{tag}').tagLink
                   span(class=(tagSelected === tag ? 'active' : '')) #{tag.length < 17 ? tag : tag.slice(0, 14) + '...'}
                   br
     ul.sidebar
