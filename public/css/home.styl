@@ -224,15 +224,46 @@ div.page
 
           > .flip-container
             perspective 1000
+            width 315px
+            margin-bottom 15px
 
-            > .flipper
+            &.flip
+              .flipper
+                transform rotateY(180deg)
 
-              > .linkBox
+            .flipper
+              transition 0.6s
+              transform-style preserve-3d
+              position relative
+
+              .backside
+                backface-visibility hidden
+                position absolute
+                top 0
+                left 0
                 width 315px
-                margin-bottom 15px
+                background-color white
+                transform rotateY(180deg)
+                display table
+
+                > .inside
+                  display table-cell
+                  vertical-align middle
+
+                  > .inthebox
+                    margin auto
+                    width 300px
+                    text-align center
+
+              .linkBox
+                width 315px
                 cursor pointer
-                float left
                 background-color #f8f8f8
+                backface-visibility hidden
+                position absolute
+                top 0
+                left 0
+                z-index 2
                 /*box-shadow 1px 1px 4px #b0b0b0*/
 
                 &:hover
@@ -295,6 +326,9 @@ div.page
                         font-size 12px
                         position relative
                         top 2px
+
+                        &:hover
+                          color #269126
 
                     &.date
                       padding 10px

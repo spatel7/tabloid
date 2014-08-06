@@ -13,13 +13,6 @@ $(function() {
 })
 
 $(function() {
-  $('.selectable').click(function () {
-    alert('found');
-    $(this).addClass('active');
-  }) 
-})
-
-$(function() {
   $('#pinToggle').click(pinNew);
 })
 
@@ -30,6 +23,20 @@ $(function() {
     if (r == true) {
       window.location = $(this).parent().parent().find('#deleteLinkBounce').val();
     }
+  })
+})
+
+$(function() {
+  $('.icon-world-2').click(function (event) {
+    event.stopPropagation();
+    $(this).parent().parent().parent().parent().parent().toggleClass('flip');
+  })
+})
+
+$(function() {
+  $('.easterEggToggle').click(function(event) {
+    event.preventDefault();
+    $(this).parent().parent().parent().parent().parent().toggleClass('flip');
   })
 })
 
@@ -117,8 +124,18 @@ $(document).ready(function() {
     var $container = $('.links');
 
     $container.imagesLoaded( function() {
+
+
+      // first go through and do shit to the item selectors
+      $('.linkBox').each(function() {
+        var height = $(this).height();
+        console.log(height);
+        $(this).parent().parent().height(height);
+        $(this).parent().find('.backside').height(height);
+      });
+
       $container.masonry({
-          itemSelector: '.linkBox'
+          itemSelector: '.flip-container'
         , columnWidth: 315
         , gutter: 15
       });
