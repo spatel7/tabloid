@@ -174,8 +174,13 @@ $(document).ready(function() {
         , gutter: 15
       });
 
-      $('.holder').hide();
-      $('.links').css('visibility', 'visible');
+      $('.holder').fadeOut(200);
+      //$('.links').css('visibility', 'visible');
+      setTimeout(function () {
+        $('.flip-container').each(function() {
+          $(this).addClass('ready');
+        })
+      }, 100)
     });
   })
 })

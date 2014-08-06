@@ -308,10 +308,14 @@ div.page ul.overall > .body > .main > .tagsList > .tags > .tagLink > span:hover 
 div.page ul.overall > .body > .main > .tagsList > .tags > .tagLink > span.active {
   background-color: #3c7b81;
 }
+div.page ul.overall > .body > .main > .holder {
+  position: absolute;
+  top: 160px;
+  z-index: 1;
+}
 div.page ul.overall > .body > .main > .links {
   width: 660px;
   display: table;
-  visibility: hidden;
 }
 div.page ul.overall > .body > .main > .links > .flip-container {
   -webkit-perspective: 1000;
@@ -320,6 +324,23 @@ div.page ul.overall > .body > .main > .links > .flip-container {
   perspective: 1000;
   width: 315px;
   margin-bottom: 15px;
+  visibility: hidden;
+  margin-top: 10px;
+  z-index: 2;
+}
+div.page ul.overall > .body > .main > .links > .flip-container.ready {
+  margin-top: 0px;
+  visibility: visible;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  -ms-transition: 0.4s;
+  transition: 0.4s;
+  -webkit-transform: translateY;
+  -moz-transform: translateY;
+  -o-transform: translateY;
+  -ms-transform: translateY;
+  transform: translateY;
 }
 div.page ul.overall > .body > .main > .links > .flip-container.flip .flipper {
   -webkit-transform: rotateY(180deg);
@@ -378,7 +399,7 @@ div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 3;
 /*box-shadow 1px 1px 4px #b0b0b0*/
 }
 div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox:hover {

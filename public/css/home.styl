@@ -297,15 +297,28 @@ div.page
                 &.active
                   background-color rgba(60, 123, 129, 1)
 
+        > .holder
+          position absolute
+          top 160px
+          z-index 1
+
         > .links
           width 660px
           display table
-          visibility hidden
 
           > .flip-container
             perspective 1000
             width 315px
             margin-bottom 15px
+            visibility hidden
+            margin-top 10px
+            z-index 2
+
+            &.ready
+              margin-top 0px
+              visibility visible
+              transition 0.4s
+              transform translateY
 
             &.flip
               .flipper
@@ -343,7 +356,7 @@ div.page
                 position absolute
                 top 0
                 left 0
-                z-index 2
+                z-index 3
                 /*box-shadow 1px 1px 4px #b0b0b0*/
 
                 &:hover
