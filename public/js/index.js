@@ -1,7 +1,8 @@
 // jQuery
 
 $(function() {
-  $('.icon').click(function() {
+  $('.icon, .loginLink').click(function(event) {
+    event.preventDefault();
     $('.login').toggleClass('shown');
     $('.column').toggleClass('shown');
     $('#loginForm #username').focus();
