@@ -1,6 +1,16 @@
 // jQuery event listeners
 
 $(function() {
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 159) {
+      $('.pinIcon').css('visibility', 'visible');
+    } else {
+      $('.pinIcon').css('visibility', 'hidden');
+    }
+  })
+})
+
+$(function() {
   $('.link, .tagLink').click(function(event){
     event.stopPropagation();
   })
@@ -13,7 +23,10 @@ $(function() {
 })
 
 $(function() {
-  $('#pinToggle').click(pinNew);
+  $('#pinToggle, .pinIcon').click(function(event) {
+    event.preventDefault();
+    pinNew();
+  });
 })
 
 $(function() {
@@ -40,16 +53,28 @@ $(function() {
   })
 })
 
+$(function() {
+  $('.overlay').click(function () {
+    if ($('.pin:visible').length) {
+      pinNew();
+    }
+  })
+})
+
 // form submissions
 
 $(function() {
   $('#findForm').submit(function(event) {
     event.preventDefault();
+    $(this).find('#find').disabled = true;
+    $(this).find('.loading').show();
     var url = $('#url').val();
     $.ajax({
         type: 'GET'
       , url: '/api/scrape?url=' + url
     }).done(function (data) {
+      $('#findForm').find('#find').disabled = false;
+      $('#findForm').find('.loading').hide();
       $('.formContainer .tagAndSave').find('#url').val(""+url);
       if (!data.title) {
         $('.formContainer .tagAndSave').find('#title').attr('type', 'text');
@@ -59,29 +84,40 @@ $(function() {
       } else {
         $('.formContainer .tagAndSave').find('#title').val(""+data.title);
       }
-      $('.formContainer .tagAndSave .title').html(data.title);
+      $('.formContainer .tagAndSave .titleBox').html(data.title);
       $('.formContainer .find').hide();
       $('.formContainer .tagAndSave').show();
       $('.formContainer .tagAndSave').find('#tags').focus();
+      $('.formContainer').css('background-color', 'rgba(1,1,1,0)');
       $('.errors').html("");
       var found = false;
+      var imagesFound = 0;
+      var j = 0;
       data.images.forEach(function(src, i) {
         var width, height;
         $("<img/>")
           .attr('src', src)
-          .load(function () {
+          .load(function (i) {
+            j++;
             if (this.width >= 295) {
               if (!found) {
+                $('.imageOptions').append("<p>Choose an image for your beautiful bookmark!</p>");
                 $('.imageOptions').append("<img src='" + src + "' class='selectable active' onclick='refresh(this)' />");
                 $('#pinForm #image').val(src);
               } else {
                 $('.imageOptions').append("<img src='" + src + "' class='selectable' onclick='refresh(this)' />");
               }
               found = true;
+              imagesFound+=1;
+            }
+            if ((j === data.images.length) && !imagesFound) {
+              $('.imageOptions').append("<p>No good images were found on this page :(</p>");
             }
           });
       })
     }).fail(function (err, status) {
+      $('#findForm').find('#find').disabled = false;
+      $('#findForm').find('.loading').hide();
       showError(err.responseText);
     })
   })
@@ -125,11 +161,9 @@ $(document).ready(function() {
 
     $container.imagesLoaded( function() {
 
-
       // first go through and do shit to the item selectors
       $('.linkBox').each(function() {
         var height = $(this).height();
-        console.log(height);
         $(this).parent().parent().height(height);
         $(this).parent().find('.backside').height(height);
       });
@@ -148,15 +182,31 @@ $(document).ready(function() {
 
 $(document).bind('keydown', 'meta+i', function (event) {
   event.preventDefault();
-  $('.pin').toggle();
-  $('.formContainer .find').find('input').focus();
+  pinNew();
 });
 
 // other functions
 
 var pinNew = function() {
+  if (('.pin:visible').length) {
+    renew();
+  }
   $('.pin').toggle();
+  $('.overlay').toggleClass('active');
   $('.formContainer .find').find('input').focus();
+}
+
+var renew = function () {
+  $('#pinForm').find('#url').val("");
+  $('#pinForm').find('#title').val("");
+  $('#pinForm').find('#image').val("");
+  $('#pinForm').find('#tags').val("");
+  $('#findForm').find('input').val("");
+  $('.formContainer .errors').html("");
+  $('.formContainer .imageOptions').html("");
+  $('.formContainer .find').show();
+  $('.formContainer .tagAndSave').hide();
+  $('.formContainer').css('background-color', '#f8f8f8');
 }
 
 var refresh = function (el) {

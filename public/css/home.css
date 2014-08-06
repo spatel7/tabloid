@@ -1,3 +1,18 @@
+.pinIcon {
+  position: fixed;
+  top: -4px;
+  margin-left: 650px;
+  cursor: pointer;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  visibility: hidden;
+}
+.pinIcon:hover {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
 img.selectable {
   display: inline-block;
   margin: 5px;
@@ -22,8 +37,22 @@ img.active {
   -ms-filter: none;
   filter: none;
 }
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.overlay.active {
+  z-index: 10;
+  background-color: rgba(1,1,1,0.5);
+  cursor: -webkit-zoom-out;
+}
 div.page {
   float: left;
+  z-index: 5;
 }
 div.page ul.sidebar {
   float: right;
@@ -109,16 +138,21 @@ div.page ul.overall > .title > .titleContainer > .navLinks > a {
 }
 div.page ul.overall > .pin {
   display: none;
-  width: 100%;
-  background-color: #f8f8f8;
+  width: 645px;
+  margin: 0 auto;
   margin-top: 10px;
   margin-bottom: 15px;
-  -webkit-box-shadow: 1px 1px 5px #a0a0a0;
-  box-shadow: 1px 1px 5px #a0a0a0;
+  position: fixed;
+  top: calc(50% - 91px);
+  left: 0;
+  right: 0;
+  z-index: 50;
 }
 div.page ul.overall > .pin > .formContainer {
-  width: calc(100% - 20px);
+  width: 600px;
   padding: 10px;
+  background-color: #f8f8f8;
+  margin: 0 auto;
 }
 div.page ul.overall > .pin > .formContainer > .find > form > input {
   width: 300px;
@@ -130,7 +164,7 @@ div.page ul.overall > .pin > .formContainer > .find > form > input {
 div.page ul.overall > .pin > .formContainer > .find > form > input:focus {
   outline-width: 0px;
 }
-div.page ul.overall > .pin > .formContainer > .find > form > button {
+div.page ul.overall > .pin > .formContainer > .find > form > #find {
   background-color: rgba(0,183,255,0.64);
   padding: 6px;
   padding-right: 10px;
@@ -141,14 +175,80 @@ div.page ul.overall > .pin > .formContainer > .find > form > button {
   color: #fff;
   cursor: pointer;
 }
-div.page ul.overall > .pin > .formContainer > .find > form > button:focus {
+div.page ul.overall > .pin > .formContainer > .find > form > #find:focus {
   outline-width: 0px;
 }
-div.page ul.overall > .pin > .formContainer > .find > form > button:active {
+div.page ul.overall > .pin > .formContainer > .find > form > #find:active {
   background-color: #00b7ff;
+}
+div.page ul.overall > .pin > .formContainer > .find > form > .loading {
+  margin-left: 10px;
+  color: #808080;
+  font-size: 13px;
+  display: none;
 }
 div.page ul.overall > .pin > .formContainer > .tagAndSave {
   display: none;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox {
+  float: left;
+  width: 315px;
+  background-color: #f8f8f8;
+  position: fixed;
+  top: calc(50% - 50px);
+  margin-left: -22px;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox > form input {
+  width: 283px;
+  padding: 5px;
+  border: 1px solid #d0d0d0;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox > form input:focus {
+  outline-width: 0px;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox > form button {
+  background-color: rgba(0,183,255,0.64);
+  padding: 6px;
+  padding-right: 10px;
+  padding-left: 10px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  border: 0px solid #000;
+  color: #fff;
+  cursor: pointer;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox > form button:focus {
+  outline-width: 0px;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox > form button:active {
+  background-color: #00b7ff;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox ul li.titleBox {
+  margin-bottom: 3px;
+  font-weight: normal;
+  font-size: 14px;
+  padding: 10px;
+  padding-bottom: 0px;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox ul li.tags {
+  padding: 10px;
+  padding-bottom: 7px;
+  padding-top: 3px;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox ul li.finish {
+  padding: 10px;
+  padding-top: 0px;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave > .imageOptions {
+  width: 315px;
+  position: fixed;
+  margin-left: 308px;
+  max-height: calc(100% - 100px);
+  height: calc(100% - 100px);
+  top: 50px;
+  overflow-y: scroll;
+  text-align: center;
+  background-color: #f8f8f8;
 }
 div.page ul.overall > .pin > .formContainer > .tagAndSave > form > input {
   width: 300px;
@@ -159,23 +259,6 @@ div.page ul.overall > .pin > .formContainer > .tagAndSave > form > input {
 }
 div.page ul.overall > .pin > .formContainer > .tagAndSave > form > input:focus {
   outline-width: 0px;
-}
-div.page ul.overall > .pin > .formContainer > .tagAndSave > form > button {
-  background-color: rgba(0,183,255,0.64);
-  padding: 6px;
-  padding-right: 10px;
-  padding-left: 10px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  border: 0px solid #000;
-  color: #fff;
-  cursor: pointer;
-}
-div.page ul.overall > .pin > .formContainer > .tagAndSave > form > button:focus {
-  outline-width: 0px;
-}
-div.page ul.overall > .pin > .formContainer > .tagAndSave > form > button:active {
-  background-color: #00b7ff;
 }
 div.page ul.overall > .pin > .formContainer > .errors {
   margin-top: 5px;
@@ -267,7 +350,7 @@ div.page ul.overall > .body > .main > .links > .flip-container .flipper .backsid
   top: 0;
   left: 0;
   width: 315px;
-  background-color: #fff;
+  background-color: #f8f8f8;
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -o-transform: rotateY(180deg);

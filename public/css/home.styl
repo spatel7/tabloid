@@ -1,5 +1,16 @@
 @import 'nib'
 
+.pinIcon
+  position fixed
+  top -4px
+  margin-left 650px
+  cursor pointer
+  opacity 0.8
+  visibility hidden
+
+  &:hover
+    opacity 1
+
 img
   &.selectable
     display inline-block
@@ -17,8 +28,22 @@ img
     border 1px solid blue
     opacity 1
 
+.overlay
+  position absolute
+  top 0
+  left 0
+  width 100%
+  height 100%
+  z-index 0
+
+  &.active
+    z-index 10
+    background-color rgba(1,1,1,0.5)
+    cursor -webkit-zoom-out
+
 div.page
   float left
+  z-index 5
 
   ul.sidebar
     float right
@@ -98,15 +123,21 @@ div.page
 
     > .pin
       display none
-      width 100%
-      background-color #f8f8f8
+      width 645px
+      margin 0 auto
       margin-top 10px
       margin-bottom 15px
-      box-shadow 1px 1px 5px #a0a0a0
+      position fixed
+      top calc(50% - 91px)
+      left 0
+      right 0
+      z-index 50
 
       > .formContainer
-        width calc(100% - 20px)
+        width 600px
         padding 10px
+        background-color #f8f8f8
+        margin 0 auto
 
         > .find
 
@@ -122,7 +153,7 @@ div.page
               &:focus
                 outline-width 0px
 
-            > button
+            > #find
               background-color rgba(0, 183, 255, 0.64)
               padding 6px
               padding-right 10px
@@ -138,9 +169,74 @@ div.page
               &:active
                 background-color rgba(0, 183, 255, 1)
 
-        > .tagAndSave
+            > .loading
+              margin-left 10px
+              color gray
+              font-size 13px
+              display none
 
+        > .tagAndSave
           display none
+
+          > .previewBox
+            float left
+            width 315px
+            background-color #f8f8f8
+            position fixed
+            top calc(50% - 50px)
+            margin-left -22px
+
+            > form
+              input
+                width 283px
+                padding 5px
+                border 1px solid #d0d0d0
+
+                &:focus
+                  outline-width 0px
+
+              button
+                background-color rgba(0, 183, 255, 0.64)
+                padding 6px
+                padding-right 10px
+                padding-left 10px
+                border-radius 2px
+                border 0px solid black
+                color white
+                cursor pointer
+
+                &:focus
+                  outline-width 0px
+
+                &:active
+                  background-color rgba(0, 183, 255, 1)
+
+            ul
+              li
+                &.titleBox
+                  margin-bottom 3px
+                  font-weight normal
+                  font-size 14px
+                  padding 10px
+                  padding-bottom 0px
+                &.tags
+                  padding 10px
+                  padding-bottom 7px
+                  padding-top 3px
+                &.finish
+                  padding 10px
+                  padding-top 0px
+
+          > .imageOptions
+            width 315px
+            position fixed
+            margin-left 308px
+            max-height calc(100% - 100px)
+            height calc(100% - 100px)
+            top 50px
+            overflow-y scroll
+            text-align center
+            background-color #f8f8f8
 
           > form
 
@@ -153,22 +249,6 @@ div.page
 
               &:focus
                 outline-width 0px
-
-            > button
-              background-color rgba(0, 183, 255, 0.64)
-              padding 6px
-              padding-right 10px
-              padding-left 10px
-              border-radius 2px
-              border 0px solid black
-              color white
-              cursor pointer
-
-              &:focus
-                outline-width 0px
-
-              &:active
-                background-color rgba(0, 183, 255, 1)
 
         > .errors
           margin-top 5px
@@ -242,7 +322,7 @@ div.page
                 top 0
                 left 0
                 width 315px
-                background-color white
+                background-color #f8f8f8
                 transform rotateY(180deg)
                 display table
 

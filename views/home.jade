@@ -7,6 +7,8 @@ block scripts
   script(src='/js/home.js' type='text/javascript')
 
 block content
+  div.overlay
+  img(src='/img/favicon.ico').pinIcon
   div.page
     ul.overall
       li.title
@@ -24,16 +26,22 @@ block content
             strong Save an interesting website
             form(action='' method='POST' id='findForm')
               input(type='text', id='url', placeholder='http://')
-              button(type='submit', name='submit') Find
+              button(type='submit', name='submit')#find Find
+              span.loading Finding website...
           div.tagAndSave
-            strong.title
-            form(action='/home/pin' method='POST' id='pinForm')
-              input(type='hidden', id='url', placeholder='http://', value='').link
-              input(type='hidden', id='title', placeholder='title of page', value='').title
-              input(type='hidden', id='image', placeholder='image', value='').image
-              input(type='text', id='tags', placeholder='tags (seperate with commas)').tags
-              div.imageOptions
-              button(type='submit', name='submit') Save link
+            div.previewBox
+              form(action='/home/pin' method='POST' id='pinForm')
+                input(type='hidden', id='url', placeholder='http://', value='').link
+                input(type='hidden', id='title', placeholder='title of page', value='').title
+                input(type='hidden', id='image', placeholder='image', value='').image
+                ul
+                  li.titleBox
+                  li.tags
+                    input(type='text', id='tags', placeholder='tags (seperate with commas)').tags
+                  li.picture
+                  li.finish
+                    button(type='submit', name='submit') Save link
+            div.imageOptions
           div.errors
       li.body
         ul.main

@@ -26,3 +26,9 @@ body {
   position: relative;
   bottom: 5px;
 }
+.middlesex .icon {
+  display: inline-block;
+  position: absolute;
+  margin-left: 20px;
+  top: -4px;
+}
