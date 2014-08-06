@@ -84,7 +84,7 @@ $(function() {
       } else {
         $('.formContainer .tagAndSave').find('#title').val(""+data.title);
       }
-      $('.formContainer .tagAndSave .titleBox').html(data.title);
+      $('.formContainer .tagAndSave .titleBox .placeholder').html(data.title);
       $('.formContainer .find').hide();
       $('.formContainer .tagAndSave').show();
       $('.formContainer .tagAndSave').find('#tags').focus();
@@ -202,7 +202,7 @@ var renew = function () {
   $('#pinForm').find('#title').css('type', 'hidden');
   $('#pinForm').find('#image').val("");
   $('#pinForm').find('#tags').val("");
-  $('#pinForm .titleBox').html("<input type='hidden' id='title' placeholder='title of page' value='' class='title' />");
+  $('#pinForm .titleBox .placeholder').html("");
   $('#findForm').find('input').val("");
   $('.formContainer .errors').html("");
   $('.formContainer .imageOptions').html("");
