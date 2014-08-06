@@ -156,7 +156,7 @@ $(function() {
 // document wide functions
 
 $(document).ready(function() {
-  $(function(){
+  setTimeout(function() {
     var $container = $('.links');
 
     $container.imagesLoaded( function() {
@@ -182,7 +182,7 @@ $(document).ready(function() {
         })
       }, 100)
     });
-  })
+  }, 200);
 })
 
 $(document).bind('keydown', 'meta+i', function (event) {
