@@ -202,6 +202,7 @@ var renew = function () {
   $('#pinForm').find('#title').css('type', 'hidden');
   $('#pinForm').find('#image').val("");
   $('#pinForm').find('#tags').val("");
+  $('#pinForm .titleBox').html("<input type='hidden' id='title' placeholder='title of page' value='' class='title' />");
   $('#findForm').find('input').val("");
   $('.formContainer .errors').html("");
   $('.formContainer .imageOptions').html("");
