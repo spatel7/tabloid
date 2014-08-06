@@ -32,10 +32,10 @@ block content
             div.previewBox
               form(action='/home/pin' method='POST' id='pinForm')
                 input(type='hidden', id='url', placeholder='http://', value='').link
-                input(type='hidden', id='title', placeholder='title of page', value='').title
                 input(type='hidden', id='image', placeholder='image', value='').image
                 ul
                   li.titleBox
+                    input(type='hidden', id='title', placeholder='title of page', value='').title
                   li.tags
                     input(type='text', id='tags', placeholder='tags (seperate with commas)').tags
                   li.picture

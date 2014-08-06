@@ -11,12 +11,14 @@ block content
     h3= title
     a(href='/home') Home
   form(action='/home/pin' method='POST' id='pinForm')
-    input(type='text', id='url', placeholder='http://')
-    br
-    input(type='text', id='title', placeholder='title of page')
-    br
-    input(type='text', id='tags', placeholder='tags (seperate with commas)')
-    br
-    input(type='submit', name='submit', value='Save link')
+    ul
+      li
+        input(type='text', id='url', placeholder='http://')
+      li
+        input(type='text', id='title', placeholder='title of page')
+      li
+        input(type='text', id='tags', placeholder='tags (seperate with commas)')
+      li
+        input(type='submit', name='submit', value='Save link')
   div.errors
     &nbsp;

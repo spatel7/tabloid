@@ -19,12 +19,12 @@ ul {
   height: 100%;
   display: table;
 }
-.container > .inner {
+.container > .middle {
   display: table-cell;
   vertical-align: top;
+  margin-top: 20px;
 }
-.container > .inner > .full {
+.container > .middle > .main {
   width: 645px;
   margin: auto;
-  margin-top: 20px;
 }

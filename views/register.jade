@@ -8,21 +8,23 @@ block scripts
   script(src='/js/static.js', type='text/javascript')
 
 block content
-  div.middlesex
+  div.column
     h1= title
     form(action='/register' method='POST' id='registerForm')
-      input(type='text' id='firstname' placeholder='your first name')
-      br
-      input(type='text' id='lastname' placeholder='your last name')
-      br
-      input(type='text' id='email' placeholder='your email')
-      br
-      input(type='text' id='username' placeholder='desired username')
-      br
-      input(type='password' id='password' placeholder='password')
-      br
-      input(type='password' id='confirm' placeholder='confirm password')
-      br
-      input(type='submit' id='register' value='Register')
+      ul
+        li
+          input(type='text' id='firstname' placeholder='your first name')
+        li
+          input(type='text' id='lastname' placeholder='your last name')
+        li
+          input(type='text' id='email' placeholder='your email')
+        li
+          input(type='text' id='username' placeholder='desired username')
+        li
+          input(type='password' id='password' placeholder='password')
+        li
+          input(type='password' id='confirm' placeholder='confirm password')
+        li
+          input(type='submit' id='register' value='Register')
     div.errors
       &nbsp;

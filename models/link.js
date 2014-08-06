@@ -3,6 +3,7 @@ var LinkSchema = new mongoose.Schema({
   , title: String
   , miniUrl: String
   , image: String
+  , note: String
   , user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
   , tags: [{ type: String, unique: true }]
   , added: { type: Date, default: Date.now }

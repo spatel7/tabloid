@@ -199,6 +199,7 @@ var pinNew = function() {
 var renew = function () {
   $('#pinForm').find('#url').val("");
   $('#pinForm').find('#title').val("");
+  $('#pinForm').find('#title').css('type', 'hidden');
   $('#pinForm').find('#image').val("");
   $('#pinForm').find('#tags').val("");
   $('#findForm').find('input').val("");

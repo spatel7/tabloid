@@ -2,7 +2,77 @@ body {
   background-color: #f8f8f8;
   margin: 0;
 }
-.middlesex {
+.login {
+  background-color: #ab72b6;
+  height: 50px;
+  width: 456px;
+  position: relative;
+  top: -50px;
+  margin: 0 auto;
+  -webkit-transform: translateY;
+  -moz-transform: translateY;
+  -o-transform: translateY;
+  -ms-transform: translateY;
+  transform: translateY;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  display: table;
+}
+.login.shown {
+  top: 0px;
+  tranform: translateY;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+}
+.login form {
+  display: table-cell;
+  vertical-align: middle;
+}
+.login form ul {
+  list-style: none;
+  width: 100%;
+  text-align: center;
+}
+.login form ul li {
+  display: inline-block;
+}
+.login form ul li > input {
+  width: 150px;
+  padding: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 1px solid #d0d0d0;
+  margin-right: 5px;
+}
+.login form ul li > input:focus {
+  outline-width: 0px;
+}
+.login form ul li > button {
+  background-color: rgba(128,0,128,0.4);
+  padding: 6px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  border: 0px solid #000;
+  color: #fff;
+  cursor: pointer;
+}
+.login form ul li > button:focus {
+  outline-width: 0px;
+}
+.login form ul li > button:active {
+  background-color: rgba(128,0,128,0.99);
+}
+.column {
   text-align: center;
   height: 100%;
   max-height: 100%;
@@ -10,25 +80,49 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  top: 0;
+  top: 0px;
+  -webkit-transform: translateY;
+  -moz-transform: translateY;
+  -o-transform: translateY;
+  -ms-transform: translateY;
+  transform: translateY;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
 }
-.middlesex h1,
-.middlesex h3 {
+.column.shown {
+  top: 50px;
+  -webkit-transform: translateY;
+  -moz-transform: translateY;
+  -o-transform: translateY;
+  -ms-transform: translateY;
+  transform: translateY;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+}
+.column h1,
+.column h3 {
   display: inline-block;
   margin: 0;
   margin-top: 25px;
   margin-bottom: 5px;
 }
-.middlesex h3 {
+.column h3 {
   margin-left: 10px;
 }
-.middlesex p {
+.column p {
   position: relative;
   bottom: 5px;
 }
-.middlesex .icon {
+.column .icon {
   display: inline-block;
   position: absolute;
   margin-left: 20px;
   top: -4px;
+  cursor: pointer;
 }

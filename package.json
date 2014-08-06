@@ -1,6 +1,6 @@
 {
     "name": "Enthusiast"
-  , "description": "Remember and talk about the things you love"
+  , "description": "Beautiful bookmarks for everything"
   , "version": "0.0.0"
   , "dependencies": {
         "async": "~0.2.9"

@@ -4,7 +4,64 @@ body
   background-color #f8f8f8
   margin 0
 
-.middlesex
+.login
+  background-color #AB72B6
+  height 50px
+  width 456px
+  position relative
+  top -50px
+  margin 0 auto
+  transform translateY
+  transition 0.3s
+  display table
+
+  &.shown
+    top 0px
+    tranform translateY
+    transition 0.3s
+
+  form
+    display table-cell
+    vertical-align middle
+
+    ul
+      list-style none
+      width 100%
+      text-align center
+
+      li
+        display inline-block
+
+        > input
+          width 150px
+          padding 5px
+          padding-top 3px
+          padding-bottom 3px
+          border 1px solid #d0d0d0
+          margin-right 5px
+
+          &:focus
+            outline-width 0px
+
+        > button
+          background-color rgba(128, 0, 128, 0.4)
+          padding 6px
+          padding-top 5px
+          padding-bottom 5px
+          padding-right 10px
+          padding-left 10px
+          border-radius 2px
+          border 0px solid black
+          color white
+          cursor pointer
+
+          &:focus
+            outline-width 0px
+
+          &:active
+            background-color rgba(128, 0, 128, 0.99)
+
+.column
   text-align center
   height 100%
   max-height 100%
@@ -12,7 +69,14 @@ body
   position absolute
   left 0
   right 0
-  top 0
+  top 0px
+  transform translateY
+  transition 0.3s
+
+  &.shown
+    top 50px
+    transform translateY
+    transition 0.3s
 
   h1
   h3
@@ -33,3 +97,4 @@ body
     position absolute
     margin-left 20px
     top -4px
+    cursor pointer

@@ -3,8 +3,20 @@ extends global
 block styles
   link(rel='stylesheet' href='/css/index.css')
 
+block scripts
+  script(src='text/javascript', src='/js/index.js')
+
 block content
-  div.middlesex
+  div.login
+    form(id='loginForm' action='/login' method='POST')
+      ul
+        li
+          input(type='text', id='username', placeholder='username')
+        li
+          input(type='password', id='password', placeholder='*********')
+        li
+          button(type='submit', id='login', value='Login') Login
+  div.column
     h1 Welcome to Enthusiast
     img(src='/img/favicon.ico').icon
     p Beautiful bookmarks for everything. 

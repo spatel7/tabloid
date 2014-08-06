@@ -8,11 +8,15 @@ block scripts
   script(src='/js/static.js', type='text/javascript')
 
 block content
-  div.middlesex
+  div.column
     h1= title
     form(id='loginForm' action='/login' method='POST')
-      input(type='text', id='username', placeholder='username')
-      input(type='password', id='password', placeholder='*********')
-      input(type='submit', id='login', value='Login')
+      ul
+        li
+          input(type='text', id='username', placeholder='username')
+        li
+          input(type='password', id='password', placeholder='*********')
+        li
+          input(type='submit', id='login', value='Login')
     div.errors
       &nbsp;
