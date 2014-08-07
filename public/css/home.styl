@@ -337,6 +337,53 @@ div.page
           width 660px
           display table
 
+          > .noLinks
+            width 165px
+            padding 10px
+            background-color white
+            box-shadow 1px 1px 4px #a0a0a0
+            border-radius 3px
+            margin auto
+            visibility hidden
+            margin-top 15px
+
+            &.ready
+              margin-top 0px
+              visibility visible
+              transition 0.5s
+              transform translateY
+
+            > span
+              display block
+              text-align center
+              margin-bottom 10px
+              font-size 15px
+              font-weight bold
+              color black
+
+            > button
+              background-color rgb(19, 155, 19)
+              padding 6px
+              padding-right 10px
+              padding-left 10px
+              border-radius 2px
+              border 0px solid black
+              color white
+              cursor pointer
+              margin auto
+              display block
+              font-size 16px
+
+              &:focus
+                outline-width 0px
+
+              &:hover
+                background-color #08B908
+
+              &:active
+                background-color #138813
+
+
           > .flip-container
             perspective 1000
             width 315px

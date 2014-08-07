@@ -44,6 +44,13 @@ $(function() {
 })
 
 $(function() {
+  $('#addNewLink').click(function() {
+    pinNew();
+    $('.formContainer .find').find('input').val("https://twitter.com");
+  })
+})
+
+$(function() {
   $('.icon-time').click(function (event) {
     event.stopPropagation();
     $(this).parent().parent().parent().parent().parent().toggleClass('flip');
@@ -186,7 +193,12 @@ $(document).ready(function() {
       setTimeout(function () {
         $('.flip-container').each(function() {
           $(this).addClass('ready');
-        })
+          //setTimeout(loadSocial, 300);
+        });
+
+        if (!$('.flip-container').length) {
+          $('.noLinks').addClass('ready');
+        }
       }, 100)
     });
   }, 200);
@@ -198,6 +210,10 @@ $(document).bind('keydown', 'meta+i', function (event) {
 });
 
 // other functions
+
+var loadSocial = function () {
+  $.getScript('/js/social.js', function() {});
+};
 
 var pinNew = function() {
   if (('.pin:visible').length) {

@@ -353,6 +353,63 @@ div.page ul.overall > .body > .main > .links {
   width: 660px;
   display: table;
 }
+div.page ul.overall > .body > .main > .links > .noLinks {
+  width: 165px;
+  padding: 10px;
+  background-color: #fff;
+  -webkit-box-shadow: 1px 1px 4px #a0a0a0;
+  box-shadow: 1px 1px 4px #a0a0a0;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  margin: auto;
+  visibility: hidden;
+  margin-top: 15px;
+}
+div.page ul.overall > .body > .main > .links > .noLinks.ready {
+  margin-top: 0px;
+  visibility: visible;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform: translateY;
+  -moz-transform: translateY;
+  -o-transform: translateY;
+  -ms-transform: translateY;
+  transform: translateY;
+}
+div.page ul.overall > .body > .main > .links > .noLinks > span {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #000;
+}
+div.page ul.overall > .body > .main > .links > .noLinks > button {
+  background-color: #139b13;
+  padding: 6px;
+  padding-right: 10px;
+  padding-left: 10px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  border: 0px solid #000;
+  color: #fff;
+  cursor: pointer;
+  margin: auto;
+  display: block;
+  font-size: 16px;
+}
+div.page ul.overall > .body > .main > .links > .noLinks > button:focus {
+  outline-width: 0px;
+}
+div.page ul.overall > .body > .main > .links > .noLinks > button:hover {
+  background-color: #08b908;
+}
+div.page ul.overall > .body > .main > .links > .noLinks > button:active {
+  background-color: #138813;
+}
 div.page ul.overall > .body > .main > .links > .flip-container {
   -webkit-perspective: 1000;
   -moz-perspective: 1000;
