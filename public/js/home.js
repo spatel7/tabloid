@@ -106,6 +106,7 @@ $(function() {
             if (this.width >= 295) {
               if (!found) {
                 $('.imageOptions').append("<p>Choose an image for your beautiful bookmark!</p>");
+                $('.imageOptions').append("<a href='javascript:refreshImages();' id='noImages'>Or choose no images</a>");
                 $('.imageOptions').append("<img src='" + src + "' class='selectable active' onclick='refresh(this)' />");
                 $('#pinForm #image').val(src);
               } else {
@@ -228,6 +229,20 @@ var refresh = function (el) {
   }
   el.className = el.className + ' active';
   $('#pinForm #image').val(el.getAttribute('src'));
+  $('.previewBox .picture').html("<img src='"+el.getAttribute('src')+"'>");
+  refreshPreviewBox();
+}
+
+var refreshImages = function () {
+  $('.selectable.active').removeClass('active');
+  $('#pinForm #image').val("");
+  $('.previewBox .picture').html("");
+  refreshPreviewBox();
+}
+
+var refreshPreviewBox = function () {
+  var height = $('.previewBox').height() / 2;
+  $('.previewBox').css('top', 'calc(50% - ' + height + 'px)');
 }
 
 var showError = function (err) {

@@ -232,6 +232,16 @@ div.page
                 &.finish
                   padding 10px
                   padding-top 0px
+                &.picture
+                  padding 10px
+                  padding-top 0px
+                  padding-bottom 5px
+                  text-align center
+                  
+                  > img
+                    width 295px
+                    max-height calc(100% - 200px)
+
 
           > .imageOptions
             width 315px
@@ -243,6 +253,10 @@ div.page
             overflow-y scroll
             text-align center
             background-color #f8f8f8
+
+            > #noImages
+              position relative
+              bottom 6px
 
           > form
 
@@ -309,7 +323,6 @@ div.page
           z-index 1
           width 645px
           text-align center
-
 
           > span
             padding 5px

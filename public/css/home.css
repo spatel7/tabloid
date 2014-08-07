@@ -249,6 +249,16 @@ div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox ul li.fi
   padding: 10px;
   padding-top: 0px;
 }
+div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox ul li.picture {
+  padding: 10px;
+  padding-top: 0px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox ul li.picture > img {
+  width: 295px;
+  max-height: calc(100% - 200px);
+}
 div.page ul.overall > .pin > .formContainer > .tagAndSave > .imageOptions {
   width: 315px;
   position: fixed;
@@ -259,6 +269,10 @@ div.page ul.overall > .pin > .formContainer > .tagAndSave > .imageOptions {
   overflow-y: scroll;
   text-align: center;
   background-color: #f8f8f8;
+}
+div.page ul.overall > .pin > .formContainer > .tagAndSave > .imageOptions > #noImages {
+  position: relative;
+  bottom: 6px;
 }
 div.page ul.overall > .pin > .formContainer > .tagAndSave > form > input {
   width: 300px;
