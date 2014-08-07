@@ -7,6 +7,18 @@ block scripts
   script(src='/js/home.js' type='text/javascript')
 
 block content
+  div#fb-root
+  script.
+    /*(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+      js.async = true;
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));*/
+    //!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');*/
+
   div.overlay
   img(src='/img/favicon.ico').pinIcon
   div.page
@@ -85,6 +97,10 @@ block content
                     div.inside
                       div.inthebox
                         a(href='#').easterEggToggle Hi #{user.name.firstname}.
+                        //
+                          div.fb-share-button(data-href="#{link.url}")
+                          a(href="https://twitter.com/share" class="twitter-share-button" data-url="#{link.url}" data-count="none" data-hashtags="enthusiast") Tweet
+                        a(href='/home/delete/#{link._id}').deleteLink Delete
             else
               p You have no links!
               p Add <b>https://medium.com/@manicho/how-a-password-changed-my-life-7af5d5f28038</b> to get started.

@@ -34,17 +34,17 @@ $(function() {
 })
 
 $(function() {
-  $('.icon-time').click(function (event) {
-    event.stopPropagation();
+  $('.deleteLink').click(function(event) {
+    event.preventDefault();
     var r = confirm("Are you sure you want to delete this bookmark?");
     if (r == true) {
-      window.location = $(this).parent().parent().find('#deleteLinkBounce').val();
+      window.location = $(this).attr('href');
     }
   })
 })
 
 $(function() {
-  $('.icon-world-2').click(function (event) {
+  $('.icon-time').click(function (event) {
     event.stopPropagation();
     $(this).parent().parent().parent().parent().parent().toggleClass('flip');
   })

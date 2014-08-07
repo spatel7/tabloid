@@ -423,6 +423,21 @@ div.page ul.overall > .body > .main > .links > .flip-container .flipper .backsid
   width: 300px;
   text-align: center;
 }
+div.page ul.overall > .body > .main > .links > .flip-container .flipper .backside > .inside > .inthebox > .fb-share-button {
+  display: block;
+  margin-bottom: 5px;
+}
+div.page ul.overall > .body > .main > .links > .flip-container .flipper .backside > .inside > .inthebox > a {
+  margin-bottom: 5px;
+  display: block;
+  text-decoration: none;
+}
+div.page ul.overall > .body > .main > .links > .flip-container .flipper .backside > .inside > .inthebox > a.deleteLink {
+  color: #f00;
+}
+div.page ul.overall > .body > .main > .links > .flip-container .flipper .backside > .inside > .inthebox > a:hover {
+  text-decoration: underline;
+}
 div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox {
   width: 315px;
   cursor: pointer;
@@ -491,9 +506,6 @@ div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox
   font-size: 12px;
   position: relative;
   top: 2px;
-}
-div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox > ul > li.url > .icon-world-2:hover {
-  color: #269126;
 }
 div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox > ul > li.date {
   padding: 10px;

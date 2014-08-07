@@ -237,7 +237,7 @@ div.page
                   padding-top 0px
                   padding-bottom 5px
                   text-align center
-                  
+
                   > img
                     width 295px
                     max-height calc(100% - 200px)
@@ -378,6 +378,21 @@ div.page
                     width 300px
                     text-align center
 
+                    > .fb-share-button
+                      display block
+                      margin-bottom 5px
+
+                    > a
+                      margin-bottom 5px
+                      display block
+                      text-decoration none
+
+                      &.deleteLink
+                        color red
+
+                      &:hover
+                        text-decoration underline
+
               .linkBox
                 width 315px
                 cursor pointer
@@ -451,7 +466,7 @@ div.page
                         top 2px
 
                         &:hover
-                          color #269126
+                          /*color #269126*/
 
                     &.date
                       padding 10px
