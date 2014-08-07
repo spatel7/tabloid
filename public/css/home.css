@@ -6,7 +6,17 @@
   opacity: 0.8;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
   filter: alpha(opacity=80);
-  visibility: hidden;
+  display: none;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  tranform: translateY;
+}
+.pinIcon.show {
+  position: fixed;
+  top: -4px;
 }
 .pinIcon:hover {
   opacity: 1;
@@ -310,8 +320,20 @@ div.page ul.overall > .body > .main > .tagsList > .tags > .tagLink > span.active
 }
 div.page ul.overall > .body > .main > .holder {
   position: absolute;
-  top: 160px;
+  top: 170px;
   z-index: 1;
+  width: 645px;
+  text-align: center;
+}
+div.page ul.overall > .body > .main > .holder > span {
+  padding: 5px;
+  padding-left: 7px;
+  padding-right: 7px;
+  margin: 0px auto;
+  background-color: #ffa500;
+  color: #f0f0f0;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 div.page ul.overall > .body > .main > .links {
   width: 660px;

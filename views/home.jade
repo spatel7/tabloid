@@ -47,7 +47,7 @@ block content
       li.body
         ul.main
           li.holder
-            span Loading bookmarks...
+            span Fetching
           li.links
             for link in user.links
               div.flip-container
@@ -84,7 +84,7 @@ block content
                   div.backside
                     div.inside
                       div.inthebox
-                        a(href='#').easterEggToggle Hi Kevin.
+                        a(href='#').easterEggToggle Hi #{user.name.firstname}.
             else
               p You have no links!
               p Add <b>https://medium.com/@manicho/how-a-password-changed-my-life-7af5d5f28038</b> to get started.

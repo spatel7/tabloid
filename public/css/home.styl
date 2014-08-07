@@ -6,7 +6,13 @@
   margin-left 650px
   cursor pointer
   opacity 0.8
-  visibility hidden
+  display none
+  transition 0.3s
+  tranform translateY
+
+  &.show
+    position fixed
+    top -4px
 
   &:hover
     opacity 1
@@ -299,8 +305,20 @@ div.page
 
         > .holder
           position absolute
-          top 160px
+          top 170px
           z-index 1
+          width 645px
+          text-align center
+
+
+          > span
+            padding 5px
+            padding-left 7px
+            padding-right 7px
+            margin 0px auto
+            background-color orange
+            color #f0f0f0
+            border-radius 3px
 
         > .links
           width 660px

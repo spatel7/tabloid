@@ -2,10 +2,14 @@
 
 $(function() {
   $(window).scroll(function() {
-    if ($(window).scrollTop() > 159) {
-      $('.pinIcon').css('visibility', 'visible');
+    if ($(window).scrollTop() > 149) {
+      if (!$('.pinIcon').is(":visible")) {
+        $('.pinIcon').show();
+      }
     } else {
-      $('.pinIcon').css('visibility', 'hidden');
+      if ($('.pinIcon').is(":visible")) {
+        $('.pinIcon').hide();
+      }
     }
   })
 })
@@ -199,6 +203,7 @@ var pinNew = function() {
   $('.pin').toggle();
   $('.overlay').toggleClass('active');
   $('.formContainer .find').find('input').focus();
+  $('body, html').toggleClass('disabled');
 }
 
 var renew = function () {

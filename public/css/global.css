@@ -1,3 +1,8 @@
+html.disabled,
+body.disabled {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 body {
   font: 14px Grande, Helvetica, Arial, sans-serif;
   margin: 0px;
