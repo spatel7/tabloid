@@ -2,6 +2,7 @@ var ff = require('ff')
   , async = require('async')
   , User = mongoose.model('User')
   , Link = mongoose.model('Link')
+  , moment = require('moment')
   //, Tag = mongoose.model('Tag');
 
 // use regex so theres no need for so many replaces
@@ -21,7 +22,7 @@ module.exports = function (app) {
       }
     }).onSuccess(function (doc) {
       user = doc;
-      return res.render('home', { user: user, title: 'Enthusiast for ' + user.name.firstname, tagSelected: req.params.tag })
+      return res.render('home', { user: user, title: 'Enthusiast for ' + user.name.firstname, tagSelected: req.params.tag, moment: moment })
     });
   });
 

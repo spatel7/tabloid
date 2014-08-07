@@ -73,7 +73,7 @@ block content
                         a(href='#{link.url.slice(0, link.url.indexOf(":"))}://#{link.miniUrl}' target="_blank").link #{link.miniUrl}
                       li.date
                         span.icon-time
-                        span.time #{link.added}
+                        span.time #{moment(link.added).fromNow()}
                       li.change
                         a(href='/home/delete/#{link._id}').deleteLink Delete
                         input(type='hidden', id='deleteLinkBounce', value='/home/delete/#{link._id}')
@@ -85,11 +85,13 @@ block content
                   div.backside
                     div.inside
                       div.inthebox
-                        a(href='#').easterEggToggle Flip back.
                         //
                           div.fb-share-button(data-href="#{link.url}")
                           a(href="https://twitter.com/share" class="twitter-share-button" data-url="#{link.url}" data-count="none" data-hashtags="enthusiast") Tweet
+                        a(href='#').updateLink Update
                         a(href='/home/delete/#{link._id}').deleteLink Delete
+                        br
+                        a(href='#').easterEggToggle or flip back.
             else
               div.noLinks
                 span You have no links!

@@ -44,6 +44,13 @@ $(function() {
 })
 
 $(function() {
+  $('.updateLink').click(function (event) {
+    event.preventDefault();
+    alert('Right now, you can update this link by readding it. In the future, we will have a better system. Thanks!');
+  })
+})
+
+$(function() {
   $('#addNewLink').click(function() {
     pinNew();
     $('.formContainer .find').find('input').val("https://twitter.com");
