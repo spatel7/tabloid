@@ -61,6 +61,15 @@ $(function() {
   $('.icon-time').click(function (event) {
     event.stopPropagation();
     $(this).parent().parent().parent().parent().parent().toggleClass('flip');
+    if (!Locals.clickedTimeIcon) {
+      $.ajax({
+          type: 'GET'
+        , url: '/api/user/clickedTimeIcon'
+      }).fail(function (err, status) {
+        console.log("Something went wrong: " + err);
+      })
+      $('.hint').fadeOut(400);
+    }
   })
 })
 
@@ -205,6 +214,10 @@ $(document).ready(function() {
 
         if (!$('.flip-container').length) {
           $('.noLinks').addClass('ready');
+        } else {
+          if (!Locals.clickedTimeIcon) {
+            $('.hint').fadeIn(400);
+          }
         }
       }, 100)
     });

@@ -6,6 +6,7 @@ var UserSchema = new mongoose.Schema({
   , links: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Link' }]
   , tags: [{ type: String, unique: true }]
   , joined: { type: Date, default: Date.now }
+  , clickedTimeIcon: { type: Boolean }
 }, {
     shardkey: { _id: 'hashed' }
   , autoIndex: false

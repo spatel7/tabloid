@@ -8,6 +8,7 @@ block scripts
 
 block content
   div#fb-root
+  span.hint Psst! See the time icon at the bottom of your bookmarks? <b>Click it.</b>
   div.overlay
   img(src='/img/favicon.ico').pinIcon
   div.page
@@ -108,3 +109,9 @@ block content
         img(src='/img/library2.png').active
       li
         img(src='/img/popular.png')
+
+
+  script.
+    var Locals = {
+      clickedTimeIcon: '#{user.clickedTimeIcon}' === 'true'
+    }

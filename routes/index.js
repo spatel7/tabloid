@@ -77,7 +77,7 @@ module.exports = function (app) {
     }
   })
 
-  app.get('/home/delete/:id', function (req, res) {
+  app.get('/home/delete/:id', ensureAuthenticated, function (req, res) {
     var f = ff(function () {
       Link.findOne({ _id: req.params.id, user: req.user._id }).exec(f.slot())
     }, function (doc) {
