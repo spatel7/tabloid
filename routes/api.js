@@ -130,7 +130,6 @@ module.exports = function (app) {
   })
 
   app.get('/api/user/clickedTimeIcon', ensureAuthenticated, function (req, res) {
-    console.log('Logging it');
     if (!req.user.clickedTimeIcon) {
       User.update({_id: req.user._id}, {$set: {clickedTimeIcon: true}}, {multi: false}, function (err) {
         if (err) console.log(err);
