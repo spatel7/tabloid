@@ -109,6 +109,8 @@ $(function() {
                 $('.imageOptions').append("<a href='javascript:refreshImages();' id='noImages'>Or choose no images</a>");
                 $('.imageOptions').append("<img src='" + src + "' class='selectable active' onclick='refresh(this)' />");
                 $('#pinForm #image').val(src);
+                $('.previewBox .picture').html("<img src='"+ src + "'>");
+                refreshPreviewBox();
               } else {
                 $('.imageOptions').append("<img src='" + src + "' class='selectable' onclick='refresh(this)' />");
               }
@@ -214,6 +216,7 @@ var renew = function () {
   $('#pinForm').find('#image').val("");
   $('#pinForm').find('#tags').val("");
   $('#pinForm .titleBox .placeholder').html("");
+  $('.previewBox .picture').html("");
   $('#findForm').find('input').val("");
   $('.formContainer .errors').html("");
   $('.formContainer .imageOptions').html("");
