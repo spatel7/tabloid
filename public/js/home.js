@@ -145,9 +145,9 @@ $(function() {
     var tags = $('#tags').val();
     var image = $('#image').val();
     if (!url || !title) {
-      showError('You need a url and a title.')
+      showError('You need a url and a title.', true)
     } else if (!tags) {
-      showError('You need at least one tag.')
+      showError('You need at least one tag.', true)
     } else {
       $.ajax({
           type: 'POST'
@@ -161,7 +161,7 @@ $(function() {
       }).done(function () {
         window.location = '/home';
       }).fail(function(err, status) {
-        showError(err.responseText);
+        showError(err.responseText, true);
       })
     }
   })
@@ -262,8 +262,13 @@ var refreshImages = function () {
 var refreshPreviewBox = function () {
   var height = $('.previewBox').height() / 2;
   $('.previewBox').css('top', 'calc(50% - ' + height + 'px)');
+  $('.find .errors').css('top', 'calc(50% + ' + (height + 20) + 'px');
 }
 
-var showError = function (err) {
-  $('.errors').html("<font color='red'>" + err + "</font>");
+var showError = function (err, showAlert) {
+  if (showAlert) {
+    alert(err);
+  } else {
+    $('.errors').html("<font color='red'>" + err + "</font>");
+  }
 }
