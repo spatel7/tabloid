@@ -36,12 +36,12 @@ module.exports = function (app) {
     var title = req.body.title;
     var tags = req.body.tags;
     var image = req.body.image;
-    console.log(image);
+    var note = req.body.note;
     var link;
-    if (!url || !title || !tags) {
+    if (!url || !title) {
       return res.send(400, 'All fields required!');
     } else {
-      var tags = tags.split(',').map(function(v) { return v.trim(); });
+      var tags = tags ? tags.split(',').map(function(v) { return v.trim(); }) : [];
       var f = ff(function() {
         Link.findOne({ user: user._id, url: url }).exec(f.slot())
       }, function (doc) {
@@ -53,12 +53,14 @@ module.exports = function (app) {
             , user: user._id
             , tags: tags
             , image: image
+            , note: note
           });
         } else {
           link = doc;
           link.tags = tags;
           link.title = title;
           link.image = image;
+          link.note = note;
         }
         link.save(f.wait());
         async.eachSeries(tags, function (tag, next) {

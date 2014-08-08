@@ -1,4 +1,5 @@
 // jQuery event listeners
+var primary = new RegExp('^(http://|https://)', 'i');
 
 $(function() {
   $(window).scroll(function() {
@@ -93,9 +94,16 @@ $(function() {
 $(function() {
   $('#findForm').submit(function(event) {
     event.preventDefault();
+    var url = $('#url').val();
+    if (!url) {  
+      return showError('You must provide a site to start.');
+    }
     $(this).find('#find').disabled = true;
     $(this).find('.loading').show();
-    var url = $('#url').val();
+    if (!primary.test(url)) {
+      url = "http://" + url;
+      $('#url').val(url);
+    }
     $.ajax({
         type: 'GET'
       , url: '/api/scrape?url=' + url
@@ -160,10 +168,9 @@ $(function() {
     var title = $('#title').val();
     var tags = $('#tags').val();
     var image = $('#image').val();
+    var note = $('#note').val();
     if (!url || !title) {
       showError('You need a url and a title.', true)
-    } else if (!tags) {
-      showError('You need at least one tag.', true)
     } else {
       $.ajax({
           type: 'POST'
@@ -173,6 +180,7 @@ $(function() {
             , title: title
             , tags: tags
             , image: image
+            , note: note
           }
       }).done(function () {
         window.location = '/home';

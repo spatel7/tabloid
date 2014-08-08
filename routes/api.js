@@ -7,7 +7,6 @@ var extensions = new RegExp("(.jpg|.jpeg|.png|.gif)$", 'i');
 
 module.exports = function (app) {
   app.get('/api/scrape', function (req, res) {
-    console.log('scraping image');
     var url = req.query.url;
     var title;
     var images = [];

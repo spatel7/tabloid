@@ -280,6 +280,11 @@ div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox ul li.pi
   width: 295px;
   max-height: calc(100% - 200px);
 }
+div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox ul li.note {
+  padding: 10px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+}
 div.page ul.overall > .pin > .formContainer > .tagAndSave > .imageOptions {
   width: 315px;
   position: fixed;
@@ -670,11 +675,30 @@ div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox
 div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox > ul > li.tagsBox > button:active {
   background-color: #00b7ff;
 }
+div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox > ul > li.note {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  margin-top: 9px;
+  background-color: #f0f0f0;
+  font-size: 13px;
+  color: #333;
+}
+div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox > ul > li.break {
+  margin-bottom: 2px;
+}
+div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox > ul > li.break.tags {
+  margin-bottom: 5px;
+}
+div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox > ul > li.break.main {
+  margin-bottom: 0px;
+  padding: 5px;
+}
 div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox > ul > li.tags {
   color: rgba(1,1,1,0.6);
   padding-left: 10px;
   padding-right: 10px;
-  margin-bottom: 2px;
 }
 div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox > ul > li.tags > .icon-tag {
   color: #808080;

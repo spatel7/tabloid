@@ -40,7 +40,9 @@ block content
                     span.placeholder
                     input(type='hidden', id='title', placeholder='title of page', value='').title
                   li.tags
-                    input(type='text', id='tags', placeholder='tags (seperate with commas)').tags
+                    input(type='text', id='tags', placeholder='tags (seperate with commas) (optional)').tags
+                  li.note
+                    input(type='text', id='note', placeholder='small note (optional)').note
                   li.picture
                   li.finish
                     button(type='submit', name='submit') Save link
@@ -59,13 +61,23 @@ block content
                     ul
                       li.titleBox
                         span #{link.title}
-                      li.tags
-                        for tag in link.tags
-                          a(href='/home?tag=#{tag}').tagLink
-                            span.tag #{tag.length < 48 ? tag : tag.slice(0, 45) + '...'}
-                      li.picture
-                        if link.image
-                          img(src='#{link.image}' style='max-width: 295px')
+                      unless !link.note
+                        li.note
+                          span #{link.note}
+                        unless !link.tags || !link.tags.length
+                          li.break.tags
+                      unless !link.tags || !link.tags.length
+                        li.tags
+                          for tag in link.tags
+                            a(href='/home?tag=#{tag}').tagLink
+                              span.tag #{tag.length < 48 ? tag : tag.slice(0, 45) + '...'}
+                        unless !link.image
+                          li.break
+                      unless !link.image
+                        li.picture
+                            img(src='#{link.image}' style='max-width: 295px')
+                      unless link.image
+                        li.break.main
                       li.matches
                         span.icon-tag
                         a(href='#').other 12 other people bookmarked this (placeholder)
