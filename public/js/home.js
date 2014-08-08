@@ -1,5 +1,6 @@
-// jQuery event listeners
 var primary = new RegExp('^(http://|https://)', 'i');
+
+// jQuery event listeners
 
 $(function() {
   $(window).scroll(function() {
@@ -90,7 +91,7 @@ $(function() {
   })
 })
 
-// pin new is used to open a pin overlay regardless if it is there or not
+// pin new should be used to open a pin overlay regardless if it is there or not
 // a different function should be used here. maybe use a reset pin function
 $(function() {
   $('.overlay').click(function () {
@@ -257,6 +258,7 @@ var loadSocial = function () {
   $.getScript('/js/social.js', function() {});
 };
 
+// definitely should not toggle but add. sepearate function for removing.
 var pinNew = function() {
   if (('.pin:visible').length) {
     renew();
@@ -267,6 +269,7 @@ var pinNew = function() {
   $('body, html').toggleClass('disabled');
 }
 
+// lol what the hell is this. was i high. use loops man.
 var renew = function () {
   $('#pinForm').find('#url').val("");
   $('#pinForm').find('#title').val("");
