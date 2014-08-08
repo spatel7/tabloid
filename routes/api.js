@@ -3,7 +3,8 @@ var ff = require('ff')
   , request = require('request')
   , User = mongoose.model('User');
 
-var extensions = new RegExp("(.jpg|.jpeg|.png|.gif)$", 'i');
+var isMeta = new RegExp("(.jpg|.jpeg|.png|.gif|.pdf)$", 'i');
+var isPdf = new RegExp('.pdf$', 'i');
 
 module.exports = function (app) {
   app.get('/api/scrape', function (req, res) {
@@ -14,12 +15,17 @@ module.exports = function (app) {
     if (!url) {
       return res.send(400, 'No such website found.');
     }
+
+    if (isPdf.test(url)) { // this assumes the website exists. Make a check for existence
+      return res.send({ title: "", images: ["http://www.imedicalapps.com/wp-content/uploads/2014/03/PDF.png"], count: 1 })
+    };
+
     var f = ff(function () {
       request.get(url, f.slotMulti(2));
     }, function (r, body) {
-      if (extensions.test(url)) {
+      if (isMeta.test(url)) {
         title = "";
-        images = [url];
+        images = [ isPdf.test(url) ? 'http://www.imedicalapps.com/wp-content/uploads/2014/03/PDF.png' : url];
         count = 1;
         return f.pass();
       }
