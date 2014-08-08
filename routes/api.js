@@ -3,8 +3,11 @@ var ff = require('ff')
   , request = require('request')
   , User = mongoose.model('User');
 
+var extensions = new RegExp("(.jpg|.jpeg|.png|.gif)$", 'i');
+
 module.exports = function (app) {
   app.get('/api/scrape', function (req, res) {
+    console.log('scraping image');
     var url = req.query.url;
     var title;
     var images = [];
@@ -15,6 +18,12 @@ module.exports = function (app) {
     var f = ff(function () {
       request.get(url, f.slotMulti(2));
     }, function (r, body) {
+      if (extensions.test(url)) {
+        title = "";
+        images = [url];
+        count = 1;
+        return f.pass();
+      }
       var $ = cheerio.load(body, {
           lowerCaseTags: true
         , lowerCaseAttributeNames: true
@@ -53,7 +62,7 @@ module.exports = function (app) {
         }
       })
     }).onError(function (err) {
-      console.log(err);
+      console.log(err.stack || err);
       if (err.message.indexOf('Invalid URI') === 0) {
         return res.send(400, "No such website found.");
       } else {

@@ -46,7 +46,7 @@ app.configure(function() {
     , cookie: {
           maxAge: 604800000
     }
-  }))  
+  }));  
 
   app.use(passport.initialize());
   app.use(passport.session());
@@ -61,7 +61,7 @@ app.get('/ping', function (req, res) {
 require('./routes')(app)
 
 appserver.listen((process.env.PORT || 3000), function () {
-  console.log('enthusiast server accepting requests on port 3000')
+  console.log('desktop server accepting requests on port 3000')
 })
 
 process.on('SIGTERM', function () {
