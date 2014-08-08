@@ -18,7 +18,7 @@ module.exports = function (app) {
       if (req.query.tag) {
         User.findOne({ _id: user._id }).populate({path: 'links', match: { tags: {$in: [req.query.tag]} }, options: { sort: { added: -1 }}}).exec(f.slot()); 
       } else {
-        User.findOne({ _id: user._id }).populate({path: 'links', options: { sort: { added: -1 }}}).exec(f.slot());
+        User.findOne({ _id: user._id }).populate({path: 'links', options: { sort: { updated: -1 }}}).exec(f.slot());
       }
     }).onSuccess(function (doc) {
       user = doc;
@@ -62,6 +62,7 @@ module.exports = function (app) {
           link.image = image;
           link.note = note;
         }
+        link.updated = new Date();
         link.save(f.wait());
         async.eachSeries(tags, function (tag, next) {
           user.tags.addToSet(tag);
@@ -97,4 +98,5 @@ module.exports = function (app) {
 
   require('./auth')(app);
   require('./api')(app);
+  require('./jobs')(app);
 }

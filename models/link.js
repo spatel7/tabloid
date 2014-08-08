@@ -7,6 +7,7 @@ var LinkSchema = new mongoose.Schema({
   , user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
   , tags: [{ type: String, unique: true }]
   , added: { type: Date, default: Date.now }
+  , updated: Date
 }, {
     shardkey: { _id: 'hashed' }
   , autoIndex: false
