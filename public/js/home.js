@@ -15,18 +15,23 @@ $(function() {
   })
 })
 
+// what does this actually do?
 $(function() {
   $('.link, .tagLink').click(function(event){
     event.stopPropagation();
   })
 })
 
+// what is the best solution? this or just putting an a tag?
+// this field could be used for other things, so this might be fine
 $(function() {
   $('.linkBox').click(function() {
     window.open($(this).find('#bounceUrl').val(), '_blank');
   })
 })
 
+// pinNew() should take a url as well as an autoadd boolean
+// then this can be used in update easily and the new add button
 $(function() {
   $('#pinToggle, .pinIcon').click(function(event) {
     event.preventDefault();
@@ -44,6 +49,7 @@ $(function() {
   })
 })
 
+// just make this use the pinNew format
 $(function() {
   $('.updateLink').click(function (event) {
     event.preventDefault();
@@ -51,6 +57,7 @@ $(function() {
   })
 })
 
+// also make this use the pin new setup
 $(function() {
   $('#addNewLink').click(function() {
     pinNew();
@@ -58,6 +65,7 @@ $(function() {
   })
 })
 
+// instead of toggle, use add class
 $(function() {
   $('.icon-time').click(function (event) {
     event.stopPropagation();
@@ -74,6 +82,7 @@ $(function() {
   })
 })
 
+// instead of toggle, use remove class
 $(function() {
   $('.easterEggToggle').click(function(event) {
     event.preventDefault();
@@ -81,6 +90,8 @@ $(function() {
   })
 })
 
+// pin new is used to open a pin overlay regardless if it is there or not
+// a different function should be used here. maybe use a reset pin function
 $(function() {
   $('.overlay').click(function () {
     if ($('.pin:visible').length) {
@@ -91,6 +102,7 @@ $(function() {
 
 // form submissions
 
+// way too much shit here. make a function that takes in variables and sets it up like that
 $(function() {
   $('#findForm').submit(function(event) {
     event.preventDefault();
@@ -122,7 +134,7 @@ $(function() {
       $('.formContainer .tagAndSave .titleBox .placeholder').html(data.title);
       $('.formContainer .find').hide();
       $('.formContainer .tagAndSave').show();
-      $('.formContainer .tagAndSave').find('#tags').focus();
+      $('.formContainer .tagAndSave').find('#note').focus();
       $('.formContainer').css('background-color', 'rgba(1,1,1,0)');
       $('.errors').html("");
       var found = false;
@@ -193,6 +205,7 @@ $(function() {
 
 // document wide functions
 
+// fix the inside. better code in general i guess. might be fine
 $(document).ready(function() {
   setTimeout(function() {
     var $container = $('.links');
@@ -232,6 +245,7 @@ $(document).ready(function() {
   }, 200);
 })
 
+// find a way to make the input function toggle as well. seriously.
 $(document).bind('keydown', 'meta+i', function (event) {
   event.preventDefault();
   pinNew();

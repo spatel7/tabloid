@@ -263,8 +263,8 @@ div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox ul li.ti
 }
 div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox ul li.tags {
   padding: 10px;
-  padding-bottom: 7px;
-  padding-top: 3px;
+  padding-bottom: 10px;
+  padding-top: 0px;
 }
 div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox ul li.finish {
   padding: 10px;
@@ -282,8 +282,8 @@ div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox ul li.pi
 }
 div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox ul li.note {
   padding: 10px;
-  padding-top: 0px;
-  padding-bottom: 10px;
+  padding-top: 3px;
+  padding-bottom: 7px;
 }
 div.page ul.overall > .pin > .formContainer > .tagAndSave > .imageOptions {
   width: 315px;
