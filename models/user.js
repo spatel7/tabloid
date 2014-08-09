@@ -7,6 +7,7 @@ var UserSchema = new mongoose.Schema({
   , tags: [{ type: String, unique: true }]
   , joined: { type: Date, default: Date.now }
   , clickedTimeIcon: { type: Boolean }
+  , sessions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'UserSession' }]
 }, {
     shardkey: { _id: 'hashed' }
   , autoIndex: false

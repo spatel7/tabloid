@@ -1,5 +1,6 @@
 var ff = require('ff')
-  , User = mongoose.model('User');
+  , User = mongoose.model('User')
+  , UserSession = mongoose.model('UserSession')
 
 var pages = {
     index: function (req, res) {
@@ -20,6 +21,31 @@ var _rerouteUser = function (requested) {
     }
 
     pages[requested](req, res);
+  }
+}
+
+var saveUserSession = function (type, user) {
+  var session;
+  if (type === 'login') {
+    session = new UserSession({
+        user: user._id
+      , loggedIn: new Date()
+      , last: true
+    })
+    session.save();
+    UserSession.update({ user: user._id, last: true, _id: {$ne: session._id }}, {$set: { last: false }}, { multi: true });
+  } else if (type === 'logout') {
+    var f = ff(function() {
+      UserSession.findOne({ user: user._id, last: true }).exec(f.slot());
+    }, function (doc) {
+      if (!doc) f.fail('user logged out of a session that was not logged into: ' + user.username);
+      session = doc;
+      session.loggedOut = new Date();
+      session.duration = session.loggedOut - session.loggedIn;
+      session.save();
+    }).onError(function(err) {
+      console.log(err);
+    })
   }
 }
 
@@ -75,12 +101,16 @@ module.exports = function (app) {
       if (!user) { return res.send(400, info.message) }
       req.logIn(user, function (err) {
         if (err) { return next(err); }
+        saveUserSession('login', user);
         return res.redirect('/home')
       });
     })(req, res, next);
   })
 
   app.get('/logout', function (req, res) {
+    if (req.user) {
+      saveUserSession('logout', req.user);
+    }
     req.logout();
     res.redirect('/');
   })

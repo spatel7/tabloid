@@ -6,4 +6,6 @@ mongoose.connection.on('error', function (err) { console.log(err) })
 // import models here
 require('../models/user')
 require('../models/link')
+require('../models/user-session')
+require('../models/link-count')
 //require('../models/tag')

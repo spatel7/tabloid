@@ -29,6 +29,7 @@ module.exports = function (app) {
         count = 1;
         return f.pass();
       }
+
       var $ = cheerio.load(body, {
           lowerCaseTags: true
         , lowerCaseAttributeNames: true
@@ -71,7 +72,7 @@ module.exports = function (app) {
       if (err.message.indexOf('Invalid URI') === 0) {
         return res.send(400, "No such website found.");
       } else {
-        return res.send(400, "Sorry something went wrong");
+        return res.send(400, "Sorry, we couldn't connect to the website you were looking for.");
       }
     }).onSuccess(function () {
       return res.send({ title: title, images: images, count: count })

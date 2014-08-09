@@ -80,7 +80,7 @@ block content
                         li.break.main
                       li.matches
                         span.icon-tag
-                        a(href='#').other 12 other people bookmarked this (placeholder)
+                        a(href='#').other #{user.linkMap[link.url] - 1} other #{user.linkMap[link.url] - 1 === 1 ? 'person' : 'people'} bookmarked this
                       li.url
                         span.icon-world-2
                         a(href='#{link.url.slice(0, link.url.indexOf(":"))}://#{link.miniUrl}' target="_blank").link #{link.miniUrl}
@@ -102,8 +102,12 @@ block content
                           div.fb-share-button(data-href="#{link.url}")
                           a(href="https://twitter.com/share" class="twitter-share-button" data-url="#{link.url}" data-count="none" data-hashtags="enthusiast") Tweet
                         a(href='#').updateLink Update
+                        span.dotdivider
+                          | .
                         a(href='/home/delete/#{link._id}').deleteLink Delete
-                        a(href='#').easterEggToggle done
+                        span.dotdivider
+                          | .
+                        a(href='#').easterEggToggle Done
             else
               div.noLinks
                 span You have no links!

@@ -508,11 +508,18 @@ div.page ul.overall > .body > .main > .links > .flip-container .flipper .backsid
 }
 div.page ul.overall > .body > .main > .links > .flip-container .flipper .backside > .inside > .inthebox > .fb-share-button {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+}
+div.page ul.overall > .body > .main > .links > .flip-container .flipper .backside > .inside > .inthebox > .dotdivider {
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+  position: relative;
+  bottom: 4px;
+  font-size: 16px;
 }
 div.page ul.overall > .body > .main > .links > .flip-container .flipper .backside > .inside > .inthebox > a {
-  margin-bottom: 5px;
-  display: block;
+  display: inline-block;
   text-decoration: none;
 }
 div.page ul.overall > .body > .main > .links > .flip-container .flipper .backside > .inside > .inthebox > a.deleteLink {
@@ -525,10 +532,11 @@ div.page ul.overall > .body > .main > .links > .flip-container .flipper .backsid
   text-decoration: underline;
 }
 div.page ul.overall > .body > .main > .links > .flip-container .flipper .backside > .inside > .inthebox > a.easterEggToggle {
-  color: #000;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+/*color black*/
+/*position absolute*/
+/*top 10px*/
+/*right 10px*/
+  color: #1188bd;
 }
 div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox {
   width: 315px;
