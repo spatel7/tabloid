@@ -33,7 +33,6 @@ var _countLinks = function (links, next) {
     console.log(err);
     return {};
   }).onSuccess(function() {
-    console.log('Returning the counts');
     next(map);
   })
 }
@@ -49,10 +48,8 @@ module.exports = function (app) {
       }
     }).onSuccess(function (doc) {
       user = doc;
-      console.log('getting the counts');
       _countLinks(user.links, function (mapping) {
         user.linkMap = mapping;
-        console.log('moving on after the counts');
         return res.render('home', { user: user, title: 'Enthusiast for ' + user.name.firstname, tagSelected: req.params.tag, moment: moment })
       })
     });
