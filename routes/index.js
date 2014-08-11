@@ -137,7 +137,7 @@ module.exports = function (app) {
       }
     }, function (linkCount) {
       if (!linkCount) f.fail('no link count found for link')
-      var index = linkCount.users.indexOf(user._id);
+      var index = linkCount.users.indexOf(req.user._id);
       if (index !== -1) {
         linkCount.users.splice(index, 1);
         linkCount.updated = new Date();
@@ -145,7 +145,7 @@ module.exports = function (app) {
       }
       Link.remove(link).exec(f.wait());
     }).onError(function (err) {
-      console.log(err);
+      console.log(err.stack || err);
     }).onComplete(function() {
       res.redirect('/home');
     })
