@@ -59,6 +59,7 @@ $(function() {
     advancePreview();
     setPreview($(this).attr('data-url'), $(this).attr('data-title'), $(this).attr('data-note'), $(this).attr('data-tags'), $(this).attr('data-image'))
     loadImagesForUpdate($(this).attr('data-url'));
+    rePositionPreview();
   })
 })
 
@@ -125,6 +126,7 @@ $(function() {
       setPreview(url, data.title, '', '', '');
       advancePreview();
       initializeImageOptions(data.images);
+      rePositionPreview();
     }).fail(function (err, status) {
       $('#findForm').find('#find').disabled = false;
       $('#findForm').find('.loading').hide();
