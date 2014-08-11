@@ -16,10 +16,10 @@ block content
       li.title
         div.titleContainer
           div.titlePart
-            a.titleLink(href='/home') Enthusiast
+            a.titleLink(href='/home') Tabloid
             span.personal  for #{user.name.firstname}. 
           div.navLinks
-            a#pinToggle(href='#') Pin link
+            a#pinToggle(href='#') Tab a new link
             &nbsp; &nbsp;
             a(href='/logout') Logout
       li.pin
@@ -37,8 +37,7 @@ block content
                 input(type='hidden', id='image', placeholder='image', value='').image
                 ul
                   li.titleBox
-                    span.placeholder
-                    input(type='hidden', id='title', placeholder='title of page', value='').title
+                    input(type='text', id='title', placeholder='title of page', value='').title
                   li.note
                     input(type='text', id='note', placeholder='small note (optional)').note
                   li.tags
@@ -101,7 +100,7 @@ block content
                         //
                           div.fb-share-button(data-href="#{link.url}")
                           a(href="https://twitter.com/share" class="twitter-share-button" data-url="#{link.url}" data-count="none" data-hashtags="enthusiast") Tweet
-                        a(href='#').updateLink Update
+                        a(href='#' data-url='#{link.url}' data-title='#{link.title}' data-note='#{link.note}' data-tags='#{link.tags}' data-image='#{link.image}').updateLink Update
                         span.dotdivider
                           | .
                         a(href='/home/delete/#{link._id}').deleteLink Delete

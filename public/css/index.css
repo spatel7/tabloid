@@ -122,7 +122,7 @@ body {
 .column .icon {
   display: inline-block;
   position: absolute;
-  margin-left: 20px;
+  margin-left: 42px;
   top: -4px;
   cursor: pointer;
 }

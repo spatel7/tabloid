@@ -110,6 +110,7 @@ module.exports = function (app) {
 
   app.get('/api/scrape/images', function (req, res) {
     var url = req.query.url;
+    var images = [];
     if (!url) {
       return res.send(400, 'No such website found.');
     }
@@ -121,19 +122,19 @@ module.exports = function (app) {
         , lowerCaseAttributeNames: true
       });
 
-      var images = "";
-
       $('img').each(function () {
         var src = $(this).attr('src');
-        if (src.slice(0, 1) === '/') {
-          src = url + src;
+        if (src) {
+          if (src.slice(0, 1) === '/') {
+            src = url + src;
+          }
+          images.push(src);
         }
-        images += src + ",";
       });
 
       f.pass(images);
     }, function (images) {
-      return res.send(images);
+      return res.send({images: images});
     }).onError(function (err) {
       console.log(err);
       if (err.message.indexOf('Invalid URI') === 0) {

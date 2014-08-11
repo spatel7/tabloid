@@ -149,6 +149,7 @@ div.page ul.overall > .title > .titleContainer > .titlePart > .titleLink {
   text-decoration: none;
   color: #fff;
   font-size: 20px;
+  position: relative;
 }
 div.page ul.overall > .title > .titleContainer > .titlePart > .titleLink:hover {
   text-decoration: underline;

@@ -16,27 +16,27 @@ $(function() {
   })
 })
 
-// what does this actually do?
 $(function() {
   $('.link, .tagLink').click(function(event){
     event.stopPropagation();
   })
 })
 
-// what is the best solution? this or just putting an a tag?
-// this field could be used for other things, so this might be fine
 $(function() {
   $('.linkBox').click(function() {
     window.open($(this).find('#bounceUrl').val(), '_blank');
   })
 })
 
-// pinNew() should take a url as well as an autoadd boolean
-// then this can be used in update easily and the new add button
 $(function() {
   $('#pinToggle, .pinIcon').click(function(event) {
     event.preventDefault();
-    pinNew();
+    if (previewIsOpen()) {
+      closePreview();
+      resetPreview();
+    } else {
+      openPreview();
+    }
   });
 })
 
@@ -54,23 +54,24 @@ $(function() {
 $(function() {
   $('.updateLink').click(function (event) {
     event.preventDefault();
-    alert('Right now, you can update this link by readding it. In the future, we will have a better system. Thanks!');
+    //alert('Right now, you can update this link by readding it. In the future, we will have a better system. Thanks!');
+    openPreview();
+    advancePreview();
+    setPreview($(this).attr('data-url'), $(this).attr('data-title'), $(this).attr('data-note'), $(this).attr('data-tags'), $(this).attr('data-image'))
+    loadImagesForUpdate($(this).attr('data-url'));
   })
 })
 
-// also make this use the pin new setup
 $(function() {
   $('#addNewLink').click(function() {
-    pinNew();
-    $('.formContainer .find').find('input').val("https://twitter.com");
+    openPreview('https://twitter.com')
   })
 })
 
-// instead of toggle, use add class
 $(function() {
   $('.icon-time').click(function (event) {
     event.stopPropagation();
-    $(this).parent().parent().parent().parent().parent().toggleClass('flip');
+    $(this).parent().parent().parent().parent().parent().addClass('flip');
     if (!Locals.clickedTimeIcon) {
       $.ajax({
           type: 'GET'
@@ -83,20 +84,18 @@ $(function() {
   })
 })
 
-// instead of toggle, use remove class
 $(function() {
   $('.easterEggToggle').click(function(event) {
     event.preventDefault();
-    $(this).parent().parent().parent().parent().parent().toggleClass('flip');
+    $(this).parent().parent().parent().parent().parent().removeClass('flip');
   })
 })
 
-// pin new should be used to open a pin overlay regardless if it is there or not
-// a different function should be used here. maybe use a reset pin function
 $(function() {
   $('.overlay').click(function () {
-    if ($('.pin:visible').length) {
-      pinNew();
+    if (previewIsOpen()) {
+      closePreview();
+      resetPreview();
     }
   })
 })
@@ -123,49 +122,9 @@ $(function() {
     }).done(function (data) {
       $('#findForm').find('#find').disabled = false;
       $('#findForm').find('.loading').hide();
-      $('.formContainer .tagAndSave').find('#url').val(""+url);
-      if (!data.title) {
-        $('.formContainer .tagAndSave').find('#title').attr('type', 'text');
-        $('.formContainer .tagAndSave').find('#title').attr('placeholder', 'title (couldnt find one, sorry!)');
-        $('.formContainer .tagAndSave').find('#title').val("");
-        $('.formContainer .tagAndSave').find('#title').after('<br>');
-      } else {
-        $('.formContainer .tagAndSave').find('#title').val(""+data.title);
-      }
-      $('.formContainer .tagAndSave .titleBox .placeholder').html(data.title);
-      $('.formContainer .find').hide();
-      $('.formContainer .tagAndSave').show();
-      $('.formContainer .tagAndSave').find('#note').focus();
-      $('.formContainer').css('background-color', 'rgba(1,1,1,0)');
-      $('.errors').html("");
-      var found = false;
-      var imagesFound = 0;
-      var j = 0;
-      data.images.forEach(function(src, i) {
-        var width, height;
-        $("<img/>")
-          .attr('src', src)
-          .load(function (i) {
-            j++;
-            if (this.width >= 295) {
-              if (!found) {
-                $('.imageOptions').append("<p>Choose an image for your beautiful bookmark!</p>");
-                $('.imageOptions').append("<a href='javascript:refreshImages();' id='noImages'>Or choose no images</a>");
-                $('.imageOptions').append("<img src='" + src + "' class='selectable active' onclick='refresh(this)' />");
-                $('#pinForm #image').val(src);
-                $('.previewBox .picture').html("<img src='"+ src + "'>");
-                refreshPreviewBox();
-              } else {
-                $('.imageOptions').append("<img src='" + src + "' class='selectable' onclick='refresh(this)' />");
-              }
-              found = true;
-              imagesFound+=1;
-            }
-            if ((j === data.images.length) && !imagesFound) {
-              $('.imageOptions').append("<p>No good images were found on this page :(</p>");
-            }
-          });
-      })
+      setPreview(url, data.title, '', '', '');
+      advancePreview();
+      initializeImageOptions(data.images);
     }).fail(function (err, status) {
       $('#findForm').find('#find').disabled = false;
       $('#findForm').find('.loading').hide();
@@ -177,11 +136,11 @@ $(function() {
 $(function() {
   $('#pinForm').submit(function(event) {
     event.preventDefault();
-    var url = $('#url').val();
-    var title = $('#title').val();
-    var tags = $('#tags').val();
-    var image = $('#image').val();
-    var note = $('#note').val();
+    var url = $('#pinForm #url').val();
+    var title = $('#pinForm #title').val();
+    var tags = $('#pinForm #tags').val();
+    var image = $('#pinForm #image').val();
+    var note = $('#pinForm #note').val();
     if (!url || !title) {
       showError('You need a url and a title.', true)
     } else {
@@ -249,7 +208,12 @@ $(document).ready(function() {
 // find a way to make the input function toggle as well. seriously.
 $(document).bind('keydown', 'meta+i', function (event) {
   event.preventDefault();
-  pinNew();
+  if (previewIsOpen()) {
+    closePreview();
+    resetPreview();
+  } else {
+    openPreview();
+  }
 });
 
 // other functions
@@ -258,32 +222,103 @@ var loadSocial = function () {
   $.getScript('/js/social.js', function() {});
 };
 
-// definitely should not toggle but add. sepearate function for removing.
-var pinNew = function() {
-  if (('.pin:visible').length) {
-    renew();
-  }
-  $('.pin').toggle();
-  $('.overlay').toggleClass('active');
-  $('.formContainer .find').find('input').focus();
-  $('body, html').toggleClass('disabled');
+var loadImagesForUpdate = function (url) {
+  $('.imageOptions').html("<p>Fetching images to choose</p>");
+  $.ajax({
+      type: 'GET'
+    , url: '/api/scrape/images?url='+url
+  }).done(function(data) {
+    initializeImageOptions(data.images);
+  })
 }
 
-// lol what the hell is this. was i high. use loops man.
-var renew = function () {
-  $('#pinForm').find('#url').val("");
-  $('#pinForm').find('#title').val("");
-  $('#pinForm').find('#title').css('type', 'hidden');
-  $('#pinForm').find('#image').val("");
-  $('#pinForm').find('#tags').val("");
-  $('#pinForm .titleBox .placeholder').html("");
-  $('.previewBox .picture').html("");
-  $('#findForm').find('input').val("");
+var previewIsOpen = function () {
+  return $('.pin:visible').length > 0;
+}
+
+var openPreview = function (url, auto) {
+  $('.pin').show();
+  $('.overlay').addClass('active');
+  $('body, html').addClass('disabled');
+  $('.formContainer .find input').focus();
+  $('.formContainer .find input').val(url || '');
+  if (auto) $('.formContainer').submit();
+}
+
+var closePreview = function () {
+  $('.pin').hide();
+  $('.overlay').removeClass('active');
+  $('body, html').removeClass('disabled');
+}
+
+var setPreview = function (url, title, note, tags, image) {
+  //alert('setting preivew with ' + url + ', ' + title);
+  $('#pinForm #url').val(url);
+  $('#pinForm #title').val(title);
+  $('#pinForm #note').val(note);
+  $('#pinForm #tags').val(tags);
+  $('#pinForm #image').val(image || '');
+  $('.previewBox .picture').html(image ? '<img src=\'' + image + '\'>' : '');
+  rePositionPreview();
+}
+
+var setPreviewImage = function (image) {
+  $('#pinForm #image').val(image);
+  $('.previewBox .picture').html(image ? '<img src=\'' + image + '\'>' : '');
+  rePositionPreview();
+}
+
+var resetPreview = function () {
+  setPreview('','','','','');
   $('.formContainer .errors').html("");
-  $('.formContainer .imageOptions').html("");
   $('.formContainer .find').show();
   $('.formContainer .tagAndSave').hide();
   $('.formContainer').css('background-color', '#f8f8f8');
+  $('.formContainer .imageOptions').html("");
+}
+
+var advancePreview = function () {
+  $('.formContainer .find').hide();
+  $('.formContainer .tagAndSave').show();
+  $('.formContainer').css('background-color', 'rgba(1,1,1,0)');
+  $('.formContainer #note').focus();
+  $('.formContainer .errors').html("");
+}
+
+var rePositionPreview = function () {
+  var height = $('.previewBox').height() / 2;
+  $('.previewBox').css('top', 'calc(50% - ' + height + 'px)');
+}
+
+var initializeImageOptions = function (images) {
+  var imagesFound = 0;
+  var j = 0;
+  var html = "";
+  $('.imageOptions').html("");
+  images.forEach(function(src, i) {
+    var width, height;
+    $("<img/>")
+      .attr('src', src)
+      .load(function (i) {
+        j++;
+        if (this.width >= 295) {
+          html += "<img src='" + src + "' class='selectable' onclick='refresh(this)' />";
+          imagesFound+=1;
+        }
+        if ((j === images.length)) {
+          if (!imagesFound) {
+            $('.imageOptions').append("<p>No good images were found on this page :(</p>");
+          } else {
+            $('.imageOptions').append("<p>Choose an image for your beautiful bookmark!</p>");
+            $('.imageOptions').append("<a href='javascript:refreshImages();' id='noImages'>Or choose no images</a>");
+            $('.imageOptions').append(html);
+          }
+        }
+      });
+  })
+  if (!images || !images.length) {
+    $('.imageOptions').append("<p>No good images were found on this page :(</p>");
+  }
 }
 
 var refresh = function (el) {
@@ -294,20 +329,14 @@ var refresh = function (el) {
   el.className = el.className + ' active';
   $('#pinForm #image').val(el.getAttribute('src'));
   $('.previewBox .picture').html("<img src='"+el.getAttribute('src')+"'>");
-  refreshPreviewBox();
+  rePositionPreview();
 }
 
 var refreshImages = function () {
   $('.selectable.active').removeClass('active');
   $('#pinForm #image').val("");
   $('.previewBox .picture').html("");
-  refreshPreviewBox();
-}
-
-var refreshPreviewBox = function () {
-  var height = $('.previewBox').height() / 2;
-  $('.previewBox').css('top', 'calc(50% - ' + height + 'px)');
-  $('.find .errors').css('top', 'calc(50% + ' + (height + 20) + 'px');
+  rePositionPreview();
 }
 
 var showError = function (err, showAlert) {
