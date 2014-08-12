@@ -360,7 +360,6 @@ div.page ul.overall > .body > .main > .tagsList > .tags > .tagLink > span.active
   background-color: #3c7b81;
 }
 div.page ul.overall > .body > .main > .holder {
-  position: absolute;
   top: 170px;
   z-index: 1;
   width: 100%;
