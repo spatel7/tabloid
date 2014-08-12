@@ -1,5 +1,6 @@
 var primary = new RegExp('^(http://|https://)', 'i');
-var setWidth = 'full';
+var sizes = ['single', 'double', 'triple'];
+var columns = sizes[1];
 
 // jQuery event listeners
 
@@ -170,7 +171,7 @@ $(function() {
 
 // fix the inside. better code in general i guess. might be fine
 $(document).ready(function() {
-  reloadMasonry(true);
+  reloadMasonry();
 })
 
 // find a way to make the input function toggle as well. seriously.
@@ -185,20 +186,21 @@ $(document).bind('keydown', 'meta+i', function (event) {
 });
 
 $(window).resize(function() {
-  if (window.innerWidth < 750 && setWidth === 'full') {
-    console.log('DECREASING masonry at width ' + window.innerWidth + " and size " + setWidth);
-    setWidth = 'small';
+  if (window.innerWidth < 650 && columns !== sizes[0]) {
+    columns = sizes[0];
     reloadMasonry();
-  } else if (window.innerWidth > 750 && setWidth === 'small') {
-    console.log('INCREASING masonry at width ' + window.innerWidth + " and size " + setWidth);
-    setWidth = 'full';
+  } else if (window.innerWidth < 990 && columns !== sizes[1]) {
+    columns = sizes[1];
+    reloadMasonry();
+  } else if (window.innerWidth >= 990 && columns !== sizes[2]) {
+    columns = sizes[2];
     reloadMasonry();
   }
 })
 
 // other functions
 
-var reloadMasonry = function (withEffect) {
+var reloadMasonry = function () {
   $('.flip-container').removeClass('ready');
   setTimeout(function() {
     var $container = $('.links');
