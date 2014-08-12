@@ -743,4 +743,10 @@ div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox
     width: 315px !important;
     margin: auto !important;
   }
+  .page .overall > .pin > .formContainer {
+    width: 100% !important;
+  }
+  .page .overall > .pin > .formContainer > .find > form > input {
+    width: calc(100% - 40px) !important;
+  }
 }

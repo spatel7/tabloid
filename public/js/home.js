@@ -314,7 +314,6 @@ var initializeImageOptions = function (images) {
   var imagesFound = 0;
   var j = 0;
   var html = "";
-  $('.imageOptions').html("");
   images.forEach(function(src, i) {
     var width, height;
     $("<img/>")
@@ -322,21 +321,23 @@ var initializeImageOptions = function (images) {
       .load(function (i) {
         j++;
         if (this.width >= 295) {
-          html += "<img src='" + src + "' class='selectable' onclick='refresh(this)' />";
+          if (!imagesFound) {
+            $('.imageOptions').append("<p>Choose an image for your beautiful bookmark!</p>");
+            $('.imageOptions').append("<a href='javascript:refreshImages();' id='noImages'>Or choose no images</a>");          
+          }
+          $('.imageOptions').append("<img src='" + src + "' class='selectable' onclick='refresh(this)' />");
           imagesFound+=1;
         }
         if ((j === images.length)) {
           if (!imagesFound) {
+            $('.imageOptions').html("");
             $('.imageOptions').append("<p>No good images were found on this page :(</p>");
-          } else {
-            $('.imageOptions').append("<p>Choose an image for your beautiful bookmark!</p>");
-            $('.imageOptions').append("<a href='javascript:refreshImages();' id='noImages'>Or choose no images</a>");
-            $('.imageOptions').append(html);
           }
         }
       });
   })
   if (!images || !images.length) {
+    $('.imageOptions').html("");
     $('.imageOptions').append("<p>No good images were found on this page :(</p>");
   }
 }
