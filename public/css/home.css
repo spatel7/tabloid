@@ -84,6 +84,7 @@ img.active {
 div.page {
   float: left;
   z-index: 5;
+  width: 100%;
 }
 div.page ul.sidebar {
   float: right;
@@ -119,8 +120,7 @@ div.page ul.sidebar li img:hover {
 }
 div.page ul.overall {
   float: left;
-  width: 645px;
-  margin-right: 5px;
+  width: 100%;
 }
 div.page ul.overall > .title {
   display: block;
@@ -170,7 +170,7 @@ div.page ul.overall > .title > .titleContainer > .navLinks > a {
 }
 div.page ul.overall > .pin {
   display: none;
-  width: 645px;
+  width: 100%;
   margin: 0 auto;
   margin-top: 10px;
   margin-bottom: 15px;
@@ -323,7 +323,7 @@ div.page ul.overall > .body {
   margin-top: 10px;
 }
 div.page ul.overall > .body > .main {
-  width: 645px;
+  width: 100%;
   display: table;
 }
 div.page ul.overall > .body > .main > .tagsList {
@@ -363,7 +363,7 @@ div.page ul.overall > .body > .main > .holder {
   position: absolute;
   top: 170px;
   z-index: 1;
-  width: 645px;
+  width: 100%;
   text-align: center;
 }
 div.page ul.overall > .body > .main > .holder > span {
@@ -377,7 +377,7 @@ div.page ul.overall > .body > .main > .holder > span {
   border-radius: 3px;
 }
 div.page ul.overall > .body > .main > .links {
-  width: 660px;
+  width: 100%;
   display: table;
 }
 div.page ul.overall > .body > .main > .links > .noLinks {
@@ -738,4 +738,10 @@ div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox
 }
 div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox > ul > li.tags > .tagLink > .tag:hover {
   background-color: #3c7b81;
+}
+@media (max-width: 750px) {
+  .page .overall .body .main .links {
+    width: 315px !important;
+    margin: auto !important;
+  }
 }

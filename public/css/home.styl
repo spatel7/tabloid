@@ -69,6 +69,7 @@ img
 div.page
   float left
   z-index 5
+  width 100%
 
   ul.sidebar
     float right
@@ -98,8 +99,7 @@ div.page
 
   ul.overall
     float left
-    width 645px
-    margin-right 5px
+    width 100%
 
     > .title
       display block
@@ -149,7 +149,7 @@ div.page
 
     > .pin
       display none
-      width 645px
+      width 100%
       margin 0 auto
       margin-top 10px
       margin-bottom 15px
@@ -306,7 +306,7 @@ div.page
       margin-top 10px
 
       > .main
-        width 645px
+        width 100%
         display table
 
         > .tagsList
@@ -345,7 +345,7 @@ div.page
           position absolute
           top 170px
           z-index 1
-          width 645px
+          width 100%
           text-align center
 
           > span
@@ -358,7 +358,7 @@ div.page
             border-radius 3px
 
         > .links
-          width 660px
+          width 100%
           display table
 
           > .noLinks
@@ -684,3 +684,12 @@ div.page
 
                           &:hover
                             background-color rgba(60, 123, 129, 1)
+
+@media(max-width: 750px)
+  .page
+    .overall
+      .body
+        .main
+          .links
+            width 315px !important
+            margin auto !important

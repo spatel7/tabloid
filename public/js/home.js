@@ -1,4 +1,5 @@
 var primary = new RegExp('^(http://|https://)', 'i');
+var setWidth = 'full';
 
 // jQuery event listeners
 
@@ -169,6 +170,36 @@ $(function() {
 
 // fix the inside. better code in general i guess. might be fine
 $(document).ready(function() {
+  reloadMasonry(true);
+})
+
+// find a way to make the input function toggle as well. seriously.
+$(document).bind('keydown', 'meta+i', function (event) {
+  event.preventDefault();
+  if (previewIsOpen()) {
+    closePreview();
+    resetPreview();
+  } else {
+    openPreview();
+  }
+});
+
+$(window).resize(function() {
+  if (window.innerWidth < 750 && setWidth === 'full') {
+    console.log('DECREASING masonry at width ' + window.innerWidth + " and size " + setWidth);
+    setWidth = 'small';
+    reloadMasonry();
+  } else if (window.innerWidth > 750 && setWidth === 'small') {
+    console.log('INCREASING masonry at width ' + window.innerWidth + " and size " + setWidth);
+    setWidth = 'full';
+    reloadMasonry();
+  }
+})
+
+// other functions
+
+var reloadMasonry = function (withEffect) {
+  $('.flip-container').removeClass('ready');
   setTimeout(function() {
     var $container = $('.links');
 
@@ -205,20 +236,7 @@ $(document).ready(function() {
       }, 100)
     });
   }, 200);
-})
-
-// find a way to make the input function toggle as well. seriously.
-$(document).bind('keydown', 'meta+i', function (event) {
-  event.preventDefault();
-  if (previewIsOpen()) {
-    closePreview();
-    resetPreview();
-  } else {
-    openPreview();
-  }
-});
-
-// other functions
+}
 
 var loadSocial = function () {
   $.getScript('/js/social.js', function() {});

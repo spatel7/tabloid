@@ -100,7 +100,7 @@ block content
                         //
                           div.fb-share-button(data-href="#{link.url}")
                           a(href="https://twitter.com/share" class="twitter-share-button" data-url="#{link.url}" data-count="none" data-hashtags="enthusiast") Tweet
-                        a(href='#' data-url='#{link.url}' data-title='#{link.title}' data-note='#{link.note}' data-tags='#{link.tags}' data-image='#{link.image}').updateLink Update
+                        a(href='#' data-url='#{link.url}' data-title='#{link.title}' data-note='#{link.note || ""}' data-tags='#{link.tags || ""}' data-image='#{link.image}').updateLink Update
                         span.dotdivider
                           | .
                         a(href='/home/delete/#{link._id}').deleteLink Delete
