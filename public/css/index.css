@@ -144,8 +144,12 @@ body {
   }
   .login {
     width: 100%;
+    top: -100px;
+  }
+  .login form ul li {
+    display: block;
   }
   .login form ul li > input {
-    width: 40%;
+    width: 95%;
   }
 }
