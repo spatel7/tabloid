@@ -204,6 +204,10 @@ div.page
         > .tagAndSave
           display none
 
+          > .toggleBoxes
+            display none
+            color white
+
           > .previewBox
             float left
             width 315px
@@ -684,7 +688,7 @@ div.page
                           &:hover
                             background-color rgba(60, 123, 129, 1)
 
-@media(max-width: 900px)
+@media(max-width: 9000px)
   .page
     .overall
       .body
@@ -702,8 +706,34 @@ div.page
             margin auto !important
       > .pin
         > .formContainer
-          width 100% !important
+          width 315px !important
           > .find
             > form
               > input
                 width calc(100% - 40px) !important
+          > .tagAndSave
+            > .toggleBoxes
+              display block !important
+              width 315px
+              position fixed
+              margin-left auto !important
+              margin-right auto !important
+              left 0px
+              right 0px
+              top 10px !important
+            > .previewBox
+              position fixed
+              width 315px
+              margin-left auto !important
+              margin-right auto
+              left 0px
+              right 0px
+              top 30px !important
+            > .imageOptions
+              display none
+              position fixed
+              margin-left auto !important
+              margin-right auto !important
+              left 0px
+              right 0px
+              top 30px !important

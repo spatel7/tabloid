@@ -2,6 +2,10 @@ var primary = new RegExp('^(http://|https://)', 'i');
 var sizes = ['single', 'double', 'triple'];
 var columns = sizes[1];
 
+if (window.innerWidth < 650) {
+  columns = sizes[0];
+}
+
 // jQuery event listeners
 
 $(function() {
@@ -103,9 +107,28 @@ $(function() {
   })
 })
 
+$(function() {
+  $('.toggleBoxes').click(function() {
+    // show only one of the boxes
+    console.log('got here');
+    if (columns !== sizes[0] || !$('.tagAndSave:visible').length) return;
+
+    console.log('made it past');
+
+    if ($('.previewBox:visible').length) {
+      console.log("hiding the preview box");
+      $('.previewBox').hide();
+      $('.imageOptions').show();
+    } else {
+      console.log('showing the preview page');
+      $('.imageOptions').hide();
+      $('.previewBox').show();
+    }
+  })
+})
+
 // form submissions
 
-// way too much shit here. make a function that takes in variables and sets it up like that
 $(function() {
   $('#findForm').submit(function(event) {
     event.preventDefault();

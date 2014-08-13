@@ -33,7 +33,7 @@ ul {
   width: 975px;
   margin: auto;
 }
-@media (max-width: 990px) {
+@media (max-width: 9900px) {
   .container .middle .main {
     width: 645px;
     margin: auto;

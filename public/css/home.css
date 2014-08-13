@@ -222,6 +222,10 @@ div.page ul.overall > .pin > .formContainer > .find > form > .loading {
 div.page ul.overall > .pin > .formContainer > .tagAndSave {
   display: none;
 }
+div.page ul.overall > .pin > .formContainer > .tagAndSave > .toggleBoxes {
+  display: none;
+  color: #fff;
+}
 div.page ul.overall > .pin > .formContainer > .tagAndSave > .previewBox {
   float: left;
   width: 315px;
@@ -738,7 +742,7 @@ div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox
 div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox > ul > li.tags > .tagLink > .tag:hover {
   background-color: #3c7b81;
 }
-@media (max-width: 900px) {
+@media (max-width: 9000px) {
   .page .overall .body .main .links {
     width: 645px !important;
   }
@@ -749,9 +753,37 @@ div.page ul.overall > .body > .main > .links > .flip-container .flipper .linkBox
     margin: auto !important;
   }
   .page .overall > .pin > .formContainer {
-    width: 100% !important;
+    width: 315px !important;
   }
   .page .overall > .pin > .formContainer > .find > form > input {
     width: calc(100% - 40px) !important;
+  }
+  .page .overall > .pin > .formContainer > .tagAndSave > .toggleBoxes {
+    display: block !important;
+    width: 315px;
+    position: fixed;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    left: 0px;
+    right: 0px;
+    top: 10px !important;
+  }
+  .page .overall > .pin > .formContainer > .tagAndSave > .previewBox {
+    position: fixed;
+    width: 315px;
+    margin-left: auto !important;
+    margin-right: auto;
+    left: 0px;
+    right: 0px;
+    top: 30px !important;
+  }
+  .page .overall > .pin > .formContainer > .tagAndSave > .imageOptions {
+    display: none;
+    position: fixed;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    left: 0px;
+    right: 0px;
+    top: 30px !important;
   }
 }
