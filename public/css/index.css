@@ -143,13 +143,17 @@ body {
     display: none !important;
   }
   .login {
+    padding-top: 10px;
+    padding-bottom: 10px;
     width: 100%;
     top: -100px;
+    z-index: 10;
   }
   .login form ul li {
     display: block;
   }
   .login form ul li > input {
-    width: 95%;
+    width: 90%;
+    margin-bottom: 4px;
   }
 }
