@@ -126,3 +126,26 @@ body {
   top: -4px;
   cursor: pointer;
 }
+.column .desktopImage {
+  display: initial;
+}
+.column .mobileImage {
+  display: none;
+}
+@media (max-width: 650px) {
+  .desktopImage {
+    display: none !important;
+  }
+  .mobileImage {
+    display: block !important;
+  }
+  .icon {
+    display: none !important;
+  }
+  .login {
+    width: 100%;
+  }
+  .login form ul li > input {
+    width: 40%;
+  }
+}

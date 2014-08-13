@@ -98,3 +98,23 @@ body
     margin-left 42px
     top -4px
     cursor pointer
+
+  .desktopImage
+    display initial
+  .mobileImage
+    display none
+
+@media (max-width: 650px)
+  .desktopImage
+    display none !important
+  .mobileImage
+    display block !important
+  .icon
+    display none !important
+  .login
+    width 100%
+    form
+      ul
+        li
+          > input
+            width 80%
