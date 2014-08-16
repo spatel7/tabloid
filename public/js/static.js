@@ -56,39 +56,6 @@ $(function() {
 })
 
 $(function() {
-  $('#registerForm').submit(function(event) {
-    event.preventDefault();
-    var firstname = $('#firstname').val();
-    var lastname = $('#lastname').val();
-    var email = $('#email').val();
-    var username = $('#username').val();
-    var password = $('#password').val();
-    var confirm = $('#confirm').val();
-    if (!firstname || !lastname || !email || !username || !password || !confirm) {
-      showError('You must fill out all fields.');
-    } else if (confirm !== password) {
-      showError('Passwords do not match.')
-    } else {
-      $.ajax({
-          type: 'POST'
-        , url: '/register'
-        , data: {
-            firstname: firstname
-          , lastname: lastname
-          , email: email
-          , username: username
-          , password: password
-        }
-      }).done(function() {
-        window.location = '/home';
-      }).fail(function(err, status) {
-        showError(err.responseText);
-      })
-    }
-  })
-})
-
-$(function() {
   $('#pinForm').submit(function(event) {
     event.preventDefault();
     var url = $('#url').val();
