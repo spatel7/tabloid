@@ -4,13 +4,13 @@ var ff = require('ff')
 
 var pages = {
     index: function (req, res) {
-      res.render('index', { title: 'Tabloid' })
+      res.render('index', { title: 'Mainstream' })
     }
   , register: function (req, res) {
-      res.render('register', { title: 'Tabloid - Registration'});
+      res.render('register', { title: 'Mainstream - Registration'});
     }
   , login: function (req, res) {
-      res.render('login', { title: 'Tabloid - Login'});
+      res.render('login', { title: 'Mainstream - Login'});
     }
 }
 

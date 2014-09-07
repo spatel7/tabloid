@@ -16,16 +16,16 @@ block content
       li.title
         div.titleContainer
           div.titlePart
-            a.titleLink(href='/home') Tabloid
+            a.titleLink(href='/home') Mainstream
             span.personal  for #{user.name.firstname}. 
           div.navLinks
-            a#pinToggle(href='#') Tab a new link
+            a#pinToggle(href='#') Save something new
             &nbsp; &nbsp;
             a(href='/logout') Logout
       li.pin
         div.formContainer
           div.find
-            strong Start with a link to the website
+            strong What did you find?
             form(action='' method='POST' id='findForm')
               input(type='text', id='url', placeholder='http://')
               button(type='submit', name='submit')#find Next

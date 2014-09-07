@@ -50,7 +50,7 @@ module.exports = function (app) {
       user = doc;
       _countLinks(user.links, function (mapping) {
         user.linkMap = mapping;
-        return res.render('home', { user: user, title: 'Tabloid for ' + user.name.firstname, tagSelected: req.params.tag, moment: moment })
+        return res.render('home', { user: user, title: 'Mainstream for ' + user.name.firstname, tagSelected: req.params.tag, moment: moment })
       })
     });
   });
